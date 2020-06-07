@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="com" extends="struts-default">
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="unLogin">/login.jsp</result>
+        </global-results>
+        <action name="login" class="com.UserAction" method="login"/>
+        <action name="register" class="com.UserAction" method="register"/>
+        <action name="logout" class="com.UserAction" method="logout"/>
+
+
+        <!--<action name="modify" class="com.UserAction" method="modify">-->
+            <!--<result name="modifyerror">/error.jsp</result>-->
+            <!--<result name="modify">/loginWelcome.jsp</result>-->
+        <!--</action>-->
+
+    </package>
+    <!--<package name="default2" extends="struts-default">-->
+        <!--&lt;!&ndash; 自定义拦截器 &ndash;&gt;-->
+        <!--<interceptors>-->
+            <!--<interceptor name="login" class="com.Interceptor">-->
+            <!--</interceptor>-->
+            <!--<interceptor-stack name="myStack">-->
+                <!--<interceptor-ref name="login" />-->
+                <!--<interceptor-ref name="defaultStack"></interceptor-ref>-->
+            <!--</interceptor-stack>-->
+        <!--</interceptors>-->
+        <!--&lt;!&ndash; 使用拦截器 &ndash;&gt;-->
+        <!--<default-interceptor-ref name="myStack"></default-interceptor-ref>-->
+    <!--</package>-->
+</struts>
