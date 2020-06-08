@@ -29,17 +29,14 @@ public class LoginFilter implements Filter {
         if (url.contains(".css") || url.contains(".js") || url.contains(".png") || url.contains(".jpg")) {
             //如果发现是css或者js文件，直接放行
             filterChain.doFilter(servletRequest, servletResponse);
+        } else if (object == null && path.indexOf("login") < 0) {
+            //判断请求的 路径中是否包含了 登录页面的请求
+            //如果包含了，那么不过滤 继续执行操作
+            //如果不是login.jsp进行过滤
+            response.sendRedirect("login.jsp");
         } else {
-            if (object == null && path.indexOf("login") < 0) {
-                //判断请求的 路径中是否包含了 登录页面的请求
-                //如果包含了，那么不过滤 继续执行操作
-                //如果不是login.jsp进行过滤
-                response.sendRedirect("login.jsp");
-            } else {
-                filterChain.doFilter(servletRequest, servletResponse); // 已经登陆,继续此次请求
-            }
+            filterChain.doFilter(servletRequest, servletResponse); // 已经登陆,继续此次请求
         }
-
 
     }
 

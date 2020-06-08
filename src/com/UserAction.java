@@ -5,15 +5,18 @@ import java.sql.*;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.Dao;
+import util.Encrypt;
+
 
 public class UserAction extends ActionSupport {
     private Dao dao = new Dao();
     private String userId;
     private String userName;
+    private String phone;
     private String password;
     private String rePassword;
     private String major;
-    private String phone;
+    private String oldPassword;
 
     public String getPhone() {
         return phone;
@@ -63,14 +66,23 @@ public class UserAction extends ActionSupport {
         this.userId = userId;
     }
 
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
 
 
     public String login() {
-        String sql = "select * from user where userId='" + getUserId() + "' and password ='" + getPassword() + "'";
+        String MD5Password= Encrypt.Encrypt_md5(getPassword());
+        String sql = "select * from user where userId='" + getUserId() + "' and password ='" + MD5Password + "'";
         ResultSet rS = dao.executeQuery(sql);
         try {
             if (rS.next()) {
                 ActionContext.getContext().getSession().put("userName", rS.getString("userName"));
+                ActionContext.getContext().getSession().put("userId", rS.getString("userId"));
                 return "success";
             }
             return "error";
@@ -84,10 +96,11 @@ public class UserAction extends ActionSupport {
 
     public String register() {
         if (getPassword().equals(getRePassword())) {
-            System.out.println(getUserName());
-            String sql = "insert into user(userId,userName,password,major,phone) values('" + getUserId() + "','" + getUserName() + "','" + getPassword() + "','" + getMajor() + "','" + getPhone() + "')";
+            String MD5Password= Encrypt.Encrypt_md5(getPassword());
+            String sql = "insert into user(userId,userName,password,major,phone) values('" + getUserId() + "','" + getUserName() + "','" + MD5Password + "','" + getMajor() + "','" + getPhone() + "')";
             int i = dao.executeUpdate(sql);
             if (i > -1) {
+                ActionContext.getContext().getSession().put("userId", userId);
                 ActionContext.getContext().getSession().put("userName", userName);
                 return "success";
             }
@@ -102,21 +115,35 @@ public class UserAction extends ActionSupport {
         return "unLogin";
     }
 
-//
-//    public String modify() {
-//        if (repassword.equals(newpassword)) {
-//            String sql = "update person set password = '"+ getNewpassword() + "'  where password='" + getPassword() + "'";
-//            int i = dao.executeUpdate(sql);
-//
-//            if (i > -1) {
-//                return "modify";
-//            }
-//            return "modifyerror";
-//        } else {
-//            return "modifyerror";
-//        }
-//
-//    }
+
+    public String modify() {
+        String userId = ActionContext.getContext().getSession().get("userId").toString();
+        String MD5OldPassword= Encrypt.Encrypt_md5(getOldPassword());
+        String querySql = "select * from user where userId='" + userId + "' and password ='" + MD5OldPassword + "'";
+        ResultSet rS = dao.executeQuery(querySql);
+        try {
+            if (!rS.next()) {
+                return "error";
+            }
+        } catch (SQLException e) {
+// TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        if (getPassword().equals(getRePassword())) {
+            String MD5Password= Encrypt.Encrypt_md5(getPassword());
+            String sql = "update user set password = '" + MD5Password + "' where userId = '" + userId + "'";
+            System.out.println(sql);
+            int i = dao.executeUpdate(sql);
+            if (i > -1) {
+                ActionContext.getContext().getSession().clear();
+                return "unLogin";
+            }
+            return "error";
+        } else {
+            return "error";
+        }
+    }
 
 
 }

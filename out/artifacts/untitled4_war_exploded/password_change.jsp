@@ -121,54 +121,33 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form data-parsley-validate="" class="form-horizontal form-label-left" action="modify.action" method="post">
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">学号
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="oldPassword">旧密码
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="userId" name="userId" required="required" class="form-control">
+                      <input type="password" id="oldPassword" name="oldPassword" required="required" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">专业班级
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="password">新密码
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="major" name="major" required="required" class="form-control">
+                      <input type="password" id="password" name="password" required="required" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">姓名
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="rePassword">重复新密码
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="name" name="name" required="required" class="form-control ">
+                      <input type="password" id="rePassword" name="rePassword" required="required" class="form-control">
                     </div>
                   </div>
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">密码
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="password" name="password" required="required" class="form-control">
-                    </div>
-                  </div>
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">重复密码
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="rePassword" name="rePassword" required="required" class="form-control">
-                    </div>
-                  </div>
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">电话号码
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="phone" name="phone" required="required" class="form-control">
-                    </div>
-                  </div>
+
 
                   <div class="ln_solid"></div>
                   <div class="item form-group">
                     <div class="col-md-6 col-sm-6 offset-md-3">
-                      <button class="btn btn-primary" type="button">取消</button>
                       <button class="btn btn-primary" type="reset">重置</button>
                       <button type="submit" class="btn btn-success">提交</button>
                     </div>
