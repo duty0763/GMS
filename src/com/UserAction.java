@@ -17,6 +17,9 @@ public class UserAction extends ActionSupport {
     private String rePassword;
     private String major;
     private String oldPassword;
+    private String title;
+    private String content;
+    private String publisher;
 
     public String getPhone() {
         return phone;
@@ -72,6 +75,30 @@ public class UserAction extends ActionSupport {
 
     public void setOldPassword(String oldPassword) {
         this.oldPassword = oldPassword;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
 
@@ -133,7 +160,6 @@ public class UserAction extends ActionSupport {
         if (getPassword().equals(getRePassword())) {
             String MD5Password= Encrypt.Encrypt_md5(getPassword());
             String sql = "update user set password = '" + MD5Password + "' where userId = '" + userId + "'";
-            System.out.println(sql);
             int i = dao.executeUpdate(sql);
             if (i > -1) {
                 ActionContext.getContext().getSession().clear();
@@ -143,6 +169,16 @@ public class UserAction extends ActionSupport {
         } else {
             return "error";
         }
+    }
+
+    public String finePublish() {
+        String sql = "insert into fineAnnouncement(title,content,publisher,phone) values('" + getTitle() + "','" + getContent() + "','" + getPublisher() + "','" + getPhone() + "')";
+        int i = dao.executeUpdate(sql);
+        System.out.println(sql);
+        if (i > -1) {
+            return "success";
+        }
+        return "error";
     }
 
 

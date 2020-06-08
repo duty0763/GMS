@@ -120,23 +120,30 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form data-parsley-validate="" class="form-horizontal form-label-left" action="finePublish.action" method="post">
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">内容
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">标题
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <textarea class="form-control" rows="15" placeholder="请在此处输入内容"></textarea>
+                      <input type="text" id="title" name="title" required="required" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">发布人
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">内容
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="publishUser" name="publishUser" required="required" class="form-control">
+                        <textarea class="form-control" rows="13" name="content" id="content"></textarea>
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">电话号码
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="publisher">发布人
+                    </label>
+                    <div class="col-md-6 col-sm-6 ">
+                      <input type="text" id="publisher" name="publisher" required="required" class="form-control">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="phone">电话号码
                     </label>
                     <div class="col-md-6 col-sm-6 ">
                       <input type="text" id="phone" name="phone" required="required" class="form-control">
@@ -146,7 +153,6 @@
                   <div class="ln_solid"></div>
                   <div class="item form-group">
                     <div class="col-md-6 col-sm-6 offset-md-3">
-                      <button class="btn btn-primary" type="button">取消</button>
                       <button class="btn btn-primary" type="reset">重置</button>
                       <button type="submit" class="btn btn-success">提交</button>
                     </div>

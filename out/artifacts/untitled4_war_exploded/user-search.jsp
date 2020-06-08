@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +36,18 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
+
+      <%
+        try {
+          Class.forName("com.mysql.jdbc.Driver");  ////驱动程序名
+          String url = "jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; //数据库名
+          String username = "root";  //数据库用户名
+          String password = "123456";  //数据库用户密码
+          Connection conn = DriverManager.getConnection(url, username, password);  //连接状态
+
+          if(conn != null) {
+      %>
+
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -92,7 +105,6 @@
 
 
 
-
       <!--上边信息栏 ---------------------------------------------------------------------->
       <div class="top_nav">
         <div class="nav_menu">
@@ -132,37 +144,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>201711701301</td>
-                            <td>软件1171</td>
-                            <td>林婉儿</td>
-                            <td>13178477391</td>
-                          </tr>
-                          <tr>
-                            <td>201711701302</td>
-                            <td>软件1172</td>
-                            <td>范闲</td>
-                            <td>13178477392</td>
-                          </tr>
-                          <tr>
-                            <td>201711701303</td>
-                            <td>软件1173</td>
-                            <td>司理理</td>
-                            <td>13178477393</td>
-                          </tr>
-                          <tr>
-                            <td>201711701304</td>
-                            <td>软件1174</td>
-                            <td>陈萍萍</td>
-                            <td>13178477394</td>
-                          </tr>
-                          <tr>
-                            <td>201711701305</td>
-                            <td>软件1175</td>
-                            <td>李云睿</td>
-                            <td>13178477395</td>
-                          </tr>
-
+                        <%
+                          Statement stmt = null;
+                          ResultSet rs = null;
+                          String sql = "SELECT * FROM user";  //查询语句
+                          stmt = conn.createStatement();
+                          rs = stmt.executeQuery(sql);
+                          while (rs.next()) {
+                        %>
+                        <tr>
+                          <td><%=rs.getString("userId")%></td>
+                          <td><%=rs.getString("major")%></td>
+                          <td><%=rs.getString("userName")%></td>
+                          <td><%=rs.getString("phone")%></td>
+                        </tr>
+                        <%
+                            }
+                        %>
                         </tbody>
                       </table>
                     </div>
@@ -183,6 +181,18 @@
         <div class="clearfix"></div>
       </footer>
       <!--/底部 ---------------------------------------------------------------------->
+
+      <%
+        }
+        else{
+        System.out.println("数据库连接失败！");
+        }
+        }catch (Exception e) {
+        //e.printStackTrace();
+        System.out.println("数据库连接异常！");
+        }
+      %>
+
     </div>
   </div>
 
