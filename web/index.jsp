@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +34,17 @@
 <body class="nav-md">
 <div class="container body">
   <div class="main_container">
+
+    <%
+      try {
+        Class.forName("com.mysql.jdbc.Driver");  ////驱动程序名
+        String url = "jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; //数据库名
+        String username = "root";  //数据库用户名
+        String password = "123456";  //数据库用户密码
+        Connection conn = DriverManager.getConnection(url, username, password);  //连接状态
+
+        if(conn != null) {
+    %>
 
 
     <!--左边导航栏 ---------------------------------------------------------------------->
@@ -175,6 +187,18 @@
       <div class="clearfix"></div>
     </footer>
     <!--/底部 ---------------------------------------------------------------------->
+
+
+    <%
+        }
+        else{
+          System.out.println("数据库连接失败！");
+        }
+      }catch (Exception e) {
+        //e.printStackTrace();
+        System.out.println("数据库连接异常！");
+      }
+    %>
   </div>
 </div>
 

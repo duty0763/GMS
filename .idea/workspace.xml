@@ -7,20 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b167bac2-b1a5-4b65-a51b-191abdc2a1ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/util/Encrypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/LoginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/password_change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/password_change.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/com/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/com/LoginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/com/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/com/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/UserAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/password_change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/password_change.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user-search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/user-search.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,16 +20,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/LoginFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="37" column="81" lean-forward="true" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/UserAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="134" column="69" lean-forward="true" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
+            <state relative-caret-position="1511">
+              <caret line="126" column="13" lean-forward="true" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#699#700#0" expanded="true" />
                 <element signature="e#732#733#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/Dao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="201" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="201" />
             </state>
           </provider>
         </entry>
@@ -58,8 +68,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/password_change.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
-              <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+            <state relative-caret-position="2805">
+              <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="180" column="68" selection-start-line="180" selection-start-column="68" selection-end-line="180" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/user-search.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -134,13 +162,11 @@
         <option value="$PROJECT_DIR$/web/ground_add.jsp" />
         <option value="$PROJECT_DIR$/web/ground_announcement.jsp" />
         <option value="$PROJECT_DIR$/web/ground_search.jsp" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/manager-search.jsp" />
         <option value="$PROJECT_DIR$/web/match-search.jsp" />
         <option value="$PROJECT_DIR$/web/match_publish.jsp" />
         <option value="$PROJECT_DIR$/web/referee_announcement.jsp" />
         <option value="$PROJECT_DIR$/web/referee_publish.jsp" />
-        <option value="$PROJECT_DIR$/web/user-search.jsp" />
         <option value="$PROJECT_DIR$/web/error.jsp" />
         <option value="$PROJECT_DIR$/web/login.jsp" />
         <option value="$PROJECT_DIR$/web/login1.jsp" />
@@ -153,6 +179,8 @@
         <option value="$PROJECT_DIR$/src/util/MD5Encrypt.java" />
         <option value="$PROJECT_DIR$/src/util/Encrypt.java" />
         <option value="$PROJECT_DIR$/src/com/UserAction.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/user-search.jsp" />
       </list>
     </option>
   </component>
@@ -195,6 +223,12 @@
             <path>
               <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="GMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GMS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -208,7 +242,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591595884340" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591597558445" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Tomcat 7.0/lib/servlet-api.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -348,7 +382,7 @@
       <workItem from="1591526397586" duration="81000" />
       <workItem from="1591536215187" duration="646000" />
       <workItem from="1591546605039" duration="4000" />
-      <workItem from="1591590880455" duration="4843000" />
+      <workItem from="1591590880455" duration="6579000" />
     </task>
     <task id="LOCAL-00001" summary="完成登录注册、登录拦截">
       <created>1591524530378</created>
@@ -364,13 +398,20 @@
       <option name="project" value="LOCAL" />
       <updated>1591536852549</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="完成MD5加密算法保存密码">
+      <created>1591595942338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591595942339</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79977000" />
+    <option name="totallyTimeSpent" value="81713000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -383,7 +424,7 @@
     <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.229585" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.229585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -393,7 +434,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.259887" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.44915253" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -423,7 +464,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成登录注册、登录拦截" />
     <MESSAGE value="解决filter拦截CSS问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决filter拦截CSS问题" />
+    <MESSAGE value="完成MD5加密算法保存密码" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成MD5加密算法保存密码" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/ground_search.html" />
@@ -443,13 +485,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/loginWelcome1.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/dao/Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-14.0.1/lib/src.zip!/java.logging/java/util/logging/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -528,21 +563,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="108" selection-start-line="107" selection-start-column="1" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/manager-search.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" column="158" selection-start-line="103" selection-start-column="158" selection-end-line="103" selection-end-column="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/user-search.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1751">
           <caret line="103" column="158" selection-start-line="103" selection-start-column="158" selection-end-line="103" selection-end-column="158" />
@@ -566,16 +587,6 @@
     <entry file="file://$PROJECT_DIR$/web/login1.jsp" />
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/login2.jsp" />
     <entry file="file://$PROJECT_DIR$/web/login3.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/com/LoginFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="37" column="81" lean-forward="true" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -639,14 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Encrypt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -656,22 +659,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="37" column="81" lean-forward="true" selection-start-line="37" selection-start-column="81" selection-end-line="37" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="201" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/password_change.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+        <state relative-caret-position="2805">
+          <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/UserAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="134" column="69" lean-forward="true" selection-start-line="134" selection-start-column="69" selection-end-line="134" selection-end-column="69" />
+        <state relative-caret-position="1511">
+          <caret line="126" column="13" lean-forward="true" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#699#700#0" expanded="true" />
             <element signature="e#732#733#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="180" column="68" selection-start-line="180" selection-start-column="68" selection-end-line="180" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user-search.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
         </state>
       </provider>
     </entry>
