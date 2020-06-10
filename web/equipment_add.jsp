@@ -54,7 +54,6 @@
                       if (role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
-                    <li><a href="manager_search.jsp">查询管理员用户</a></li>
                     <li><a href="user_search.jsp">查询用户</a></li>
                     <%
                       }
@@ -83,7 +82,7 @@
                 <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <%
-                      if (role.equals("1") ||role.equals("2") || role.equals("3")) {
+                      if (role.equals("1") || role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="match_publish.jsp">赛事发布</a></li>
                     <%

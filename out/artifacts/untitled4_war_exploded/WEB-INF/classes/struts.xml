@@ -20,11 +20,14 @@
             <result name="error">/error.jsp</result>
             <result name="success">/index.jsp</result>
             <result name="unLogin">/login.jsp</result>
+            <result name="updateManger">/user_search.jsp</result>
         </global-results>
         <action name="login" class="com.UserAction" method="login"/>
         <action name="register" class="com.UserAction" method="register"/>
         <action name="logout" class="com.UserAction" method="logout"/>
         <action name="modify" class="com.UserAction" method="modify"/>
         <action name="finePublish" class="com.UserAction" method="finePublish"/>
+        <action name="addManager" class="com.UserAction" method="addManager"/>
+        <action name="deleteManager" class="com.UserAction" method="deleteManager"/>
     </package>
 </struts>

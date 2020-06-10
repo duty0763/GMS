@@ -192,6 +192,23 @@ public class UserAction extends ActionSupport {
         return "error";
     }
 
+    public String addManager() {
+        String sql = "update user set role = '2' where userId='"+getUserId()+"'";
+        int a = dao.executeUpdate(sql);
+        if (a > -1) {
+            return "updateManger";
+        }
+        return "error";
+    }
+
+    public String deleteManager() {
+        String sql = "update user set role = '1' where userId='"+getUserId()+"'";
+        int a = dao.executeUpdate(sql);
+        if (a > -1) {
+            return "updateManger";
+        }
+        return "error";
+    }
 
 
 }

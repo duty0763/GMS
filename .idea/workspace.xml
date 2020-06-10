@@ -7,46 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b167bac2-b1a5-4b65-a51b-191abdc2a1ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/403.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/manager_search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/Interceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/Interceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/LoginFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/com/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/dao/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/dao/Dao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/announcement_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/announcement_publish.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_add.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_borrow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_borrow.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_charge.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_charge.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_return.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_return.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/equipment_search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_add.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_announcement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_announcement.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_publish.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/ground_search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/manager-search.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/match-search.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/match_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/match_publish.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/password_change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/password_change.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/referee_announcement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/referee_announcement.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/referee_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/referee_publish.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled4_war_exploded/user-search.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/com/Interceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/com/Interceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/com/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/com/LoginFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/untitled4/com/UserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/com/UserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled4/dao/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/dao/Dao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/untitled4/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled4/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Interceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/LoginFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/UserAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/announcement_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/announcement_publish.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/equipment_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/equipment_add.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/equipment_borrow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/equipment_borrow.jsp" afterDir="false" />
@@ -58,14 +40,13 @@
       <change beforePath="$PROJECT_DIR$/web/ground_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ground_publish.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/ground_search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ground_search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/manager-search.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/match-search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/match_search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manager_search.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/match_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/match_publish.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/match_search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/match_search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/password_change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/password_change.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/referee_announcement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/referee_announcement.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/referee_publish.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/referee_publish.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user-search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/user_search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user_search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/user_search.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,7 +56,110 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/ground_search.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="139" selection-start-line="139" selection-end-line="139" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/match_publish.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/match_search.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/password_change.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/referee_announcement.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/referee_publish.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="622">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/user_search.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-70">
+              <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/equipment_search.html" />
         <option value="$PROJECT_DIR$/web/ground_add.html" />
         <option value="$PROJECT_DIR$/web/ground_announcement.html" />
         <option value="$PROJECT_DIR$/web/ground_publish.html" />
@@ -137,8 +220,6 @@
         <option value="$PROJECT_DIR$/src/util/MD5Encrypt.java" />
         <option value="$PROJECT_DIR$/src/util/Encrypt.java" />
         <option value="$PROJECT_DIR$/src/dao/Dao.java" />
-        <option value="$PROJECT_DIR$/src/struts.xml" />
-        <option value="$PROJECT_DIR$/src/com/UserAction.java" />
         <option value="$PROJECT_DIR$/src/com/Interceptor/Interceptor.java" />
         <option value="$PROJECT_DIR$/web/manager-search.jsp" />
         <option value="$PROJECT_DIR$/web/match-search.jsp" />
@@ -146,6 +227,11 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/403.jsp" />
         <option value="$PROJECT_DIR$/src/com/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/web/error.jsp" />
+        <option value="$PROJECT_DIR$/web/login.jsp" />
+        <option value="$PROJECT_DIR$/src/com/Filter/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/src/com/UserAction.java" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/web/user_search.jsp" />
         <option value="$PROJECT_DIR$/web/announcement_publish.jsp" />
         <option value="$PROJECT_DIR$/web/equipment_add.jsp" />
@@ -153,16 +239,14 @@
         <option value="$PROJECT_DIR$/web/equipment_charge.jsp" />
         <option value="$PROJECT_DIR$/web/equipment_return.jsp" />
         <option value="$PROJECT_DIR$/web/equipment_search.jsp" />
-        <option value="$PROJECT_DIR$/web/error.jsp" />
         <option value="$PROJECT_DIR$/web/ground_add.jsp" />
         <option value="$PROJECT_DIR$/web/ground_announcement.jsp" />
         <option value="$PROJECT_DIR$/web/ground_publish.jsp" />
         <option value="$PROJECT_DIR$/web/ground_search.jsp" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/web/login.jsp" />
         <option value="$PROJECT_DIR$/web/manager_search.jsp" />
-        <option value="$PROJECT_DIR$/web/match_search.jsp" />
         <option value="$PROJECT_DIR$/web/match_publish.jsp" />
+        <option value="$PROJECT_DIR$/web/match_search.jsp" />
         <option value="$PROJECT_DIR$/web/password_change.jsp" />
         <option value="$PROJECT_DIR$/web/referee_announcement.jsp" />
         <option value="$PROJECT_DIR$/web/referee_publish.jsp" />
@@ -177,8 +261,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="305" />
-    <option name="width" value="1610" />
+    <option name="x" value="381" />
+    <option name="y" value="40" />
+    <option name="width" value="1310" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
@@ -196,6 +281,24 @@
             <path>
               <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="GMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GMS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -209,7 +312,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591771616533" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591795827639" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Tomcat 7.0/lib/servlet-api.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -357,7 +460,8 @@
       <workItem from="1591663355657" duration="30469000" />
       <workItem from="1591756553951" duration="4744000" />
       <workItem from="1591765327105" duration="3266000" />
-      <workItem from="1591768748504" duration="2734000" />
+      <workItem from="1591768748504" duration="2993000" />
+      <workItem from="1591786016567" duration="8852000" />
     </task>
     <task id="LOCAL-00001" summary="完成登录注册、登录拦截">
       <created>1591524530378</created>
@@ -387,11 +491,18 @@
       <option name="project" value="LOCAL" />
       <updated>1591608486494</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="完成管理员账户查询、权限访问">
+      <created>1591771740484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591771740484</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130020000" />
+    <option name="totallyTimeSpent" value="139131000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -404,8 +515,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.269437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -414,8 +526,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49799198" visible="true" weight="0.33569404" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49799198" weight="0.33569404" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -447,7 +559,8 @@
     <MESSAGE value="解决filter拦截CSS问题" />
     <MESSAGE value="完成MD5加密算法保存密码" />
     <MESSAGE value="完成公告发布功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成公告发布功能" />
+    <MESSAGE value="完成管理员账户查询、权限访问" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成管理员账户查询、权限访问" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/match_publish.html" />
@@ -493,28 +606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
-    </entry>
     <entry file="jar://$USER_HOME$/Documents/Tomcat 7.0/lib/servlet-api.jar!/javax/servlet/annotation/WebFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/UserAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -535,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Interceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -556,10 +644,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/LoginFilter.java">
+    <entry file="file://$PROJECT_DIR$/web/403.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+        <state>
+          <caret column="86" lean-forward="true" selection-start-column="86" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Interceptor/Interceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Filter/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="29" column="78" lean-forward="true" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="200" column="23" lean-forward="true" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -568,43 +688,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/announcement_publish.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="469">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/equipment_add.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="469">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/equipment_borrow.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="520">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/equipment_charge.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/equipment_return.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/equipment_search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -615,45 +753,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/403.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="86" lean-forward="true" selection-start-column="86" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/ground_add.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/ground_announcement.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="520">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/ground_publish.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="520">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/ground_search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="520">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        <state relative-caret-position="469">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -666,50 +812,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/manager_search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        <state relative-caret-position="469">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/match_publish.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="418">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/match_search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/password_change.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/referee_announcement.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="418">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/referee_publish.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="622">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/user_search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="-70">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
         </state>
       </provider>
     </entry>
