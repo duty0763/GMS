@@ -50,10 +50,6 @@
                     <div>
                         <input type="password" class="form-control" placeholder="密码" required="" name="password"/>
                     </div>
-                    <p>
-                        <input type="radio" class="flat" name="type" value="user" checked=""/> 用户&nbsp;&nbsp;&nbsp;
-                        <input type="radio" class="flat" name="type" value="manager"/> 管理员
-                    </p>
                     <div>
                         <button type="submit" class="btn btn-primary btn-sm">登录</button>
                         <a class="reset_pass" href="#">忘记密码？</a>
@@ -83,7 +79,7 @@
                         <input type="text" class="form-control" name="userId" placeholder="一卡通号" required=""/>
                     </div>
                     <div>
-                        <input type="text" class="form-control" name="major" placeholder="专业班级" required=""/>
+                        <input type="text" class="form-control" name="major" placeholder="专业班级(教职工不用填写)" />
                     </div>
                     <div>
                         <input type="text" class="form-control" name="userName" placeholder="姓名" required=""/>
@@ -97,6 +93,10 @@
                     <div>
                         <input type="password" class="form-control" name="rePassword" placeholder="重复密码" required=""/>
                     </div>
+                    <p>
+                    <input type="radio" class="flat" name="role" value="0" checked=""/> 学生&nbsp;&nbsp;&nbsp;
+                    <input type="radio" class="flat" name="role" value="1"/> 教职工
+                    </p>
                     <div>
                         <button type="submit" class="btn btn-primary btn-sm">注册</button>
                     </div>

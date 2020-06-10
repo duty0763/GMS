@@ -20,6 +20,7 @@ public class UserAction extends ActionSupport {
     private String title;
     private String content;
     private String publisher;
+    private String role;
 
     public String getPhone() {
         return phone;
@@ -101,6 +102,14 @@ public class UserAction extends ActionSupport {
         this.publisher = publisher;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 
     public String login() {
         String MD5Password= Encrypt.Encrypt_md5(getPassword());
@@ -110,6 +119,7 @@ public class UserAction extends ActionSupport {
             if (rS.next()) {
                 ActionContext.getContext().getSession().put("userName", rS.getString("userName"));
                 ActionContext.getContext().getSession().put("userId", rS.getString("userId"));
+                ActionContext.getContext().getSession().put("role", rS.getString("role"));
                 return "success";
             }
             return "error";
@@ -124,11 +134,12 @@ public class UserAction extends ActionSupport {
     public String register() {
         if (getPassword().equals(getRePassword())) {
             String MD5Password= Encrypt.Encrypt_md5(getPassword());
-            String sql = "insert into user(userId,userName,password,major,phone) values('" + getUserId() + "','" + getUserName() + "','" + MD5Password + "','" + getMajor() + "','" + getPhone() + "')";
+            String sql = "insert into user(userId,userName,password,major,phone,role) values('" + getUserId() + "','" + getUserName() + "','" + MD5Password + "','" + getMajor() + "','" + getPhone() + "','" + getRole() + "')";
             int i = dao.executeUpdate(sql);
             if (i > -1) {
                 ActionContext.getContext().getSession().put("userId", userId);
                 ActionContext.getContext().getSession().put("userName", userName);
+                ActionContext.getContext().getSession().put("role", role);
                 return "success";
             }
             return "error";
@@ -180,6 +191,7 @@ public class UserAction extends ActionSupport {
         }
         return "error";
     }
+
 
 
 }

@@ -6,6 +6,16 @@
 
 <struts>
     <package name="com" extends="struts-default">
+        <interceptors>
+            <interceptor name="login" class="com.Interceptor.Interceptor">
+            </interceptor>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="login" />
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 使用拦截器 -->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
         <global-results>
             <result name="error">/error.jsp</result>
             <result name="success">/index.jsp</result>
@@ -15,6 +25,6 @@
         <action name="register" class="com.UserAction" method="register"/>
         <action name="logout" class="com.UserAction" method="logout"/>
         <action name="modify" class="com.UserAction" method="modify"/>
-
+        <action name="finePublish" class="com.UserAction" method="finePublish"/>
     </package>
 </struts>

@@ -2,17 +2,18 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/favicon.ico" type="image/ico"/>
 
-    <title>海大体育馆管理系统</title>
+    <title>管理员用户查询</title>
 
     <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -20,12 +21,14 @@
     <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Datatables -->
+
+    <link href="/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="/build/css/custom.min.css" rel="stylesheet">
 </head>
@@ -37,16 +40,15 @@
         <%
             try {
                 Class.forName("com.mysql.jdbc.Driver");  ////驱动程序名
-                String url = "jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useTimezone=true&serverTimezone=Asia/Shanghai"; //数据库名
+                String url = "jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; //数据库名
                 String username = "root";  //数据库用户名
                 String password = "123456";  //数据库用户密码
                 Connection conn = DriverManager.getConnection(url, username, password);  //连接状态
 
-                if (conn != null) {
-                    String role = (String) session.getAttribute("role");
+                if(conn != null) {
         %>
 
-
+        <%String role = (String) session.getAttribute("role");%>
         <!--左边导航栏 ---------------------------------------------------------------------->
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
@@ -139,7 +141,6 @@
         </div>
         <!--/左边导航栏 ---------------------------------------------------------------------->
 
-
         <!--上边信息栏 ---------------------------------------------------------------------->
         <div class="top_nav">
             <div class="nav_menu">
@@ -148,8 +149,7 @@
                 </div>
                 <nav class="nav navbar-nav">
                     <ul class=" navbar-right">
-                        <span class="pull-right">欢迎您，${sessionScope.userName}!&nbsp;&nbsp;&nbsp; <a
-                                href="logout.action"> 退出登录 <i class="fa fa-sign-out"></i></a></span>
+                        <span class="pull-right">欢迎您，${sessionScope.userName}!&nbsp;&nbsp;&nbsp; <a href="logout.action"> 退出登录 <i class="fa fa-sign-out"></i></a></span>
                     </ul>
                 </nav>
             </div>
@@ -163,55 +163,42 @@
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>馆内设施罚款条例公告</h2>
+                            <h2>管理员用户查询</h2>
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <div class="dashboard-widget-content">
-                                <!--公告item li ---------------------------------------------------------------------->
-                                <ul class="list-unstyled timeline widget">
-                                    <%
-                                        Statement stmt = null;
-                                        ResultSet rs = null;
-                                        String sql = "SELECT * FROM fineAnnouncement order by publishTime DESC";  //查询语句
-                                        stmt = conn.createStatement();
-                                        rs = stmt.executeQuery(sql);
-                                        while (rs.next()) {
-                                    %>
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">
-                                                    <%=rs.getString("title")%>
-                                                </h2>
-                                                <div class="byline">
-                                                    <span><%=rs.getString("publisher")%></span>&nbsp;&nbsp;&nbsp;<span><%=rs.getString("publishTime").substring(0, rs.getString("publishTime").indexOf("."))%></span>
-                                                </div>
-                                                <p class="excerpt">
-                                                    <%=rs.getString("content")%>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <%
-                                        }
-                                    %>
-                                    <li>
-                                        <div class="block">
-                                            <div class="block_content">
-                                                <h2 class="title">关于继续封闭我校湖光校区南门的通知
-                                                </h2>
-                                                <div class="byline">
-                                                    <span>关阳</span>&nbsp;&nbsp;&nbsp;<span>2020-05-19</span>
-                                                </div>
-                                                <p class="excerpt">
-                                                    各单位、部门：目前，海大路扩建工程正处于收尾阶段，湖光校区南门尚未正式启用。近期出现个别教职员工经海大路从湖光校区南门进出校园的现象，给学校常态化疫情防控工作及校园实施封闭性管理增加了诸多风险隐患。当前，学校已进入学生分批次返校的重要时期，为全面加强校园进出管理，抓紧抓实抓细常态化疫情防控安保工作，确保校园安全和师生健康，学校继续封闭湖光校区南门，直至海大路正式启用。请全体师生员工继续从湖光校区西一门进出。
-                                                    广东海洋大学 2020年5月19日</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <!--/公告item li ---------------------------------------------------------------------->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box table-responsive">
+                                        <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                            <tr>
+                                                <th>一卡通号</th>
+                                                <th>姓名</th>
+                                                <th>手机号</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <%
+                                                Statement stmt = null;
+                                                ResultSet rs = null;
+                                                String sql = "SELECT * FROM user where role in ('2','3')";  //查询语句
+                                                stmt = conn.createStatement();
+                                                rs = stmt.executeQuery(sql);
+                                                while (rs.next()) {
+                                            %>
+                                            <tr>
+                                                <td><%=rs.getString("userId")%></td>
+                                                <td><%=rs.getString("userName")%></td>
+                                                <td><%=rs.getString("phone")%></td>
+                                            </tr>
+                                            <%
+                                                }
+                                            %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -221,6 +208,7 @@
         <!--/内容 ---------------------------------------------------------------------->
 
 
+
         <!--底部 ---------------------------------------------------------------------->
         <footer>
             <div class="pull-right">GDOU_Managerment_System</div>
@@ -228,24 +216,24 @@
         </footer>
         <!--/底部 ---------------------------------------------------------------------->
 
-
         <%
-                } else {
+                }
+                else{
                     System.out.println("数据库连接失败！");
                 }
-            } catch (Exception e) {
+            }catch (Exception e) {
                 //e.printStackTrace();
                 System.out.println("数据库连接异常！");
             }
         %>
+
     </div>
 </div>
 
 
+
 <!----------------------------------------- JS引用 ----------------------------------------->
-
 <!-- jQuery -->
-
 <script src="/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -253,39 +241,28 @@
 <script src="/vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
 <script src="/vendors/nprogress/nprogress.js"></script>
-<!-- Chart.js -->
-<script src="/vendors/Chart.js/dist/Chart.min.js"></script>
-<!-- gauge.js -->
-<script src="/vendors/gauge.js/dist/gauge.min.js"></script>
-<!-- bootstrap-progressbar -->
-<script src="/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 <!-- iCheck -->
 <script src="/vendors/iCheck/icheck.min.js"></script>
-<!-- Skycons -->
-<script src="/vendors/skycons/skycons.js"></script>
-<!-- Flot -->
-<script src="/vendors/Flot/jquery.flot.js"></script>
-<script src="/vendors/Flot/jquery.flot.pie.js"></script>
-<script src="/vendors/Flot/jquery.flot.time.js"></script>
-<script src="/vendors/Flot/jquery.flot.stack.js"></script>
-<script src="/vendors/Flot/jquery.flot.resize.js"></script>
-<!-- Flot plugins -->
-<script src="/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-<script src="/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-<script src="/vendors/flot.curvedlines/curvedLines.js"></script>
-<!-- DateJS -->
-<script src="/vendors/DateJS/build/date.js"></script>
-<!-- JQVMap -->
-<script src="/vendors/jqvmap/dist/jquery.vmap.js"></script>
-<script src="/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-<script src="/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-<!-- bootstrap-daterangepicker -->
-<script src="/vendors/moment/min/moment.min.js"></script>
-<script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- Datatables -->
+<script src="/vendors/datatables.net/js/jquery.dataTables.js"></script>
+<script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.jsp5.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="/vendors/jszip/dist/jszip.min.js"></script>
+<script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="/build/js/custom.min.js"></script>
 
 </body>
 
 </html>
-

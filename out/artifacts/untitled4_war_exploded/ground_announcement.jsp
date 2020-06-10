@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -33,8 +32,7 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-
-
+      <%String role = (String) session.getAttribute("role");%>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -50,32 +48,69 @@
                 <li><a><i class="fa fa-male"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="index.jsp">馆内设施罚款条例公告</a></li>
+                    <%
+                      if (role.equals("2") || role.equals("3")) {
+                    %>
                     <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
-                    <li><a href="manager-search.jsp">查询管理员用户</a></li>
-                    <li><a href="user-search.jsp">查询用户</a></li>
+                    <li><a href="manager_search.jsp">查询管理员用户</a></li>
+                    <li><a href="user_search.jsp">查询用户</a></li>
+                    <%
+                      }
+                    %>
                     <li><a href="password_change.jsp">修改密码</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-university"></i> 场地管理 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
+
+                    <%
+                      if (role.equals("2") || role.equals("3")) {
+                    %>
                     <li><a href="ground_add.jsp">添加场地</a></li>
-                    <li><a href="ground_search.jsp">场地查询</a></li>
-                    <li><a href="ground_announcement.jsp">场地公告</a></li>
                     <li><a href="ground_publish.jsp">发布场地公告</a></li>
+                    <%
+                      }
+                    %>
+                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
+                    <li><a href="ground_search.jsp">场地查询</a></li>
+                    <!--在底部放置预约的选项
+                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
+                    <li><a href="ground_announcement.jsp">场地公告</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="match-search.jsp">赛事信息查询</a></li>
+                    <%
+                      if (role.equals("1") ||role.equals("2") || role.equals("3")) {
+                    %>
                     <li><a href="match_publish.jsp">赛事发布</a></li>
-                    <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
+                    <%
+                      }
+                    %>
+                    <%
+                      if (role.equals("2") || role.equals("3")) {
+                    %>
                     <li><a href="referee_publish.jsp">发布裁判简介公告</a></li>
+                    <%
+                      }
+                    %>
+                    <li><a href="match_search.jsp">赛事信息查询</a></li>
+                    <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-wrench"></i> 器材管理 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
+                    <%
+                      if (role.equals("2") || role.equals("3")) {
+                    %>
                     <li><a href="equipment_add.jsp">新增器材</a></li>
+                    <!--器材号不用写 主键自增就行-->
+                    <%
+                      }
+                    %>
                     <li><a href="equipment_search.jsp">器材查询</a></li>
+                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
+                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                     <li><a href="equipment_return.jsp">器材归还</a></li>
                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
@@ -89,7 +124,6 @@
         </div>
       </div>
       <!--/左边导航栏 ---------------------------------------------------------------------->
-
 
       <!--上边信息栏 ---------------------------------------------------------------------->
       <div class="top_nav">
