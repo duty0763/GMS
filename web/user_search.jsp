@@ -226,6 +226,10 @@
                                                     <td><form action="addManager.action" method="post"><input type="hidden" name="userId" value="<%=rs.getString("userId")%>"  /><button type="submit" class="buttons btn btn-success">添加管理员</button></form></td>
                                                     <%}%>
 
+                                                    <%if (rs.getString("role").equals("0")||rs.getString("role").equals("3")) {%>
+                                                    <td></td>
+                                                    <%}%>
+
                                                 <%}%>
                                             </tr>
                                             <%

@@ -122,7 +122,7 @@
                                     %>
                                     <li><a href="equipment_search.jsp">器材查询</a></li>
                                     <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
-                                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
+                                    <!--在器材每一个item右边放一个增加数量和减少数量的buttton 改变数量 再加一个修改按钮-->
                                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                                     <li><a href="equipment_return.jsp">器材归还</a></li>
                                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
