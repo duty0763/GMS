@@ -43,6 +43,7 @@
                 </small></span></a>
           </div>
           <div class="clearfix"></div>
+          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <ul class="nav side-menu">
@@ -71,7 +72,10 @@
                     <%
                       }
                     %>
+                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
                     <li><a href="ground_search.jsp">场地查询</a></li>
+                    <!--在底部放置预约的选项
+                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
                     <li><a href="ground_announcement.jsp">场地公告</a></li>
                   </ul>
                 </li>
@@ -101,10 +105,13 @@
                       if (role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="equipment_add.jsp">新增器材</a></li>
+                    <!--器材号不用写 主键自增就行-->
                     <%
                       }
                     %>
                     <li><a href="equipment_search.jsp">器材查询</a></li>
+                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
+                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                     <li><a href="equipment_return.jsp">器材归还</a></li>
                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
@@ -113,6 +120,8 @@
               </ul>
             </div>
           </div>
+          <!-- /sidebar menu -->
+
         </div>
       </div>
       <!--/左边导航栏 ---------------------------------------------------------------------->
@@ -148,26 +157,26 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form data-parsley-validate="" class="form-horizontal form-label-left" action="publishGround.action" method="post">
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">内容
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">内容
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <textarea class="form-control" rows="15" placeholder="请在此处输入内容"></textarea>
+                        <textarea class="form-control" rows="15" placeholder="请在此处输入内容" name="noticeText"></textarea>
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">发布人
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" >发布人
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="publishUser" name="publishUser" required="required" class="form-control">
+                      <input type="text" id="publishUser" name="noticePublisher" required="required" class="form-control" >
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">电话号码
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" >发布标题
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="phone" name="phone" required="required" class="form-control">
+                      <input type="text" id="phone" name="noticeTitle" required="required" class="form-control">
                     </div>
                   </div>
 

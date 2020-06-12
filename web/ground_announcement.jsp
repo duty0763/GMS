@@ -1,3 +1,5 @@
+<%@page import="java.sql.*" %>
+<%@ page import="dao.Dao" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,10 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao = new Dao();
+        String role = (String) session.getAttribute("role");
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -41,6 +46,7 @@
                 </small></span></a>
           </div>
           <div class="clearfix"></div>
+          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <ul class="nav side-menu">
@@ -69,7 +75,10 @@
                     <%
                       }
                     %>
+                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
                     <li><a href="ground_search.jsp">场地查询</a></li>
+                    <!--在底部放置预约的选项
+                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
                     <li><a href="ground_announcement.jsp">场地公告</a></li>
                   </ul>
                 </li>
@@ -99,10 +108,13 @@
                       if (role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="equipment_add.jsp">新增器材</a></li>
+                    <!--器材号不用写 主键自增就行-->
                     <%
                       }
                     %>
                     <li><a href="equipment_search.jsp">器材查询</a></li>
+                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
+                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                     <li><a href="equipment_return.jsp">器材归还</a></li>
                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
@@ -111,6 +123,8 @@
               </ul>
             </div>
           </div>
+          <!-- /sidebar menu -->
+
         </div>
       </div>
       <!--/左边导航栏 ---------------------------------------------------------------------->
@@ -148,35 +162,32 @@
                 <div class="dashboard-widget-content">
                   <!--公告item li ---------------------------------------------------------------------->
                   <ul class="list-unstyled timeline widget">
+                      <%
+
+                                        ResultSet rs = null;
+                                        String sql = "SELECT * FROM groundnotice order by noticePtime DESC";  //查询语句
+
+                                        rs = dao.executeQuery(sql);
+                                        while (rs.next()) {
+                                    %>
                     <li>
                       <div class="block">
                         <div class="block_content">
-                          <h2 class="title">关于湖光校区场地公告
+                          <h2 class="title">
+                            <%=rs.getString("noticeTitle")%>
                           </h2>
                           <div class="byline">
-                            <span>梅志刚</span>&nbsp;&nbsp;&nbsp;<span>2020-05-29</span>
+                            <span><%=rs.getString("noticePublisher")%></span>&nbsp;&nbsp;&nbsp;<span><%=rs.getString("noticePtime").substring(0, rs.getString("noticePtime").indexOf("."))%></span>
                           </div>
-                          <p class="excerpt">学校全体师生、各届校友：
-由于天气原因，002与008号室外场地暂时关闭，开启时间请留意公告
+                          <p class="excerpt">
+                            <%=rs.getString("noticeText")%>
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">关于继续封闭001号的通知
-                          </h2>
-                          <div class="byline">
-                            <span>关阳</span>&nbsp;&nbsp;&nbsp;<span>2020-05-19</span>
-                          </div>
-                          <p class="excerpt">
-                            目前场地处于维护更新阶段，开启时间请留意公告。</p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <!--/公告item li ---------------------------------------------------------------------->
+                      <%
+                                        }
+                                    %>
                 </div>
               </div>
             </div>
