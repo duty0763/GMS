@@ -35,5 +35,9 @@
         <action name="orderGround1" class="com.GroundAction" method="orderGround1"></action>
         <action name="orderGround2" class="com.GroundAction" method="orderGround2"></action>
         <action name="orderGround3" class="com.GroundAction" method="orderGround3"></action>
+        <!-- 赛事管理action -->
+        <action name="setMatch" class="com.MatchAction" method="setMatch"/>
+        <action name="setPublish" class="com.MatchAction" method="setPublish"/>
+        <action name="deleteMatch" class="com.MatchAction" method="deleteMatch"/>
     </package>
 </struts>

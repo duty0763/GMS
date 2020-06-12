@@ -179,7 +179,7 @@
                         </thead>
                         <tbody>
                         <%
-                          String sql = "SELECT * FROM ground ";  //查询语句
+                          String sql = "SELECT * FROM ground WHERE groundStatus=0";  //查询语句
                           ResultSet rs = dao.executeQuery(sql);
                           while (rs.next()) {
                         %>
@@ -187,7 +187,20 @@
                             <td><%=rs.getString("groundId")%></td>
                             <td><%=rs.getString("groundEqu")%></td>
                             <td><%=rs.getString("groundFee")%></td>
-                            <td><%=rs.getString("groundStatus")%></td>
+
+                              <%if (rs.getString("groundStatus").equals("0")) {%>
+                              <td>空闲</td>
+                              <%}%>
+                              <%if (rs.getString("groundStatus").equals("1")) {%>
+                              <td>普通租用</td>
+                              <%}%>
+                              <%if (rs.getString("groundStatus").equals("2")) {%>
+                              <td>校队征用</td>
+                              <%}%>
+                              <%if (rs.getString("groundStatus").equals("3")) {%>
+                              <td>赛事征用</td>
+                              <%}%>
+
                             <td><select id="useTime">
                               <option value="今天上午8.30-11.30">今天上午8.30-11.30</option>
                               <option value="今天下午2.30-5.30">今天下午2.30-5.30</option>
@@ -200,9 +213,9 @@
                               <option value="后天整日">后天整日</option>
                             </select></td>
                             <td>
-                              <form action="orderGround1.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">普通预约</button></form>
+                                <form action="orderGround1.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><a class="buttons btn btn-success" onclick="submit(this)" style="color: #FFFFFF;cursor:pointer">普通预约</a></form>
                               <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%>
-                              <form action="orderGround2.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">校队预约</button></form>
+                              <form action="orderGround2.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><a class="buttons btn btn-success" onclick="submit(this)" style="color: #FFFFFF;cursor:pointer">校队预约</a></form>
                               <%}%>
                             </td>
                           </tr>
@@ -309,8 +322,12 @@
   <!-- Custom Theme Scripts -->
   <script src="/build/js/custom.min.js"></script>
   <script>
-    document.getElementsByName("useTime")[0].value=document.getElementById("useTime").value;
-    document.getElementsByName("useTime")[1].value=document.getElementById("useTime").value;
+
+      function submit(event) {
+          event.parentNode.children[0].value=event.parentNode.parentNode.parentNode.children[4].children[0].value;
+          event.parentNode.submit();
+      }
+
   </script>
 </body>
 

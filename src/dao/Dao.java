@@ -8,9 +8,8 @@ public class Dao {
     public Dao() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8","root","1234");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/gms?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8","root","123456");
             stat = con.createStatement();
-            System.out.println("=====================数据库连接成功=====================");
         } catch (Exception e) {
 // TODO: handle exception
             con = null;
