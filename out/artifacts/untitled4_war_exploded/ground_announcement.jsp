@@ -1,3 +1,5 @@
+<%@page import="java.sql.*" %>
+<%@ page import="dao.Dao" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,10 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao = new Dao();
+        String role = (String) session.getAttribute("role");
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -157,35 +162,32 @@
                 <div class="dashboard-widget-content">
                   <!--公告item li ---------------------------------------------------------------------->
                   <ul class="list-unstyled timeline widget">
+                      <%
+
+                                        ResultSet rs = null;
+                                        String sql = "SELECT * FROM groundnotice order by noticePtime DESC";  //查询语句
+
+                                        rs = dao.executeQuery(sql);
+                                        while (rs.next()) {
+                                    %>
                     <li>
                       <div class="block">
                         <div class="block_content">
-                          <h2 class="title">关于湖光校区场地公告
+                          <h2 class="title">
+                            <%=rs.getString("noticeTitle")%>
                           </h2>
                           <div class="byline">
-                            <span>梅志刚</span>&nbsp;&nbsp;&nbsp;<span>2020-05-29</span>
+                            <span><%=rs.getString("noticePublisher")%></span>&nbsp;&nbsp;&nbsp;<span><%=rs.getString("noticePtime").substring(0, rs.getString("noticePtime").indexOf("."))%></span>
                           </div>
-                          <p class="excerpt">学校全体师生、各届校友：
-由于天气原因，002与008号室外场地暂时关闭，开启时间请留意公告
+                          <p class="excerpt">
+                            <%=rs.getString("noticeText")%>
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li>
-                      <div class="block">
-                        <div class="block_content">
-                          <h2 class="title">关于继续封闭001号的通知
-                          </h2>
-                          <div class="byline">
-                            <span>关阳</span>&nbsp;&nbsp;&nbsp;<span>2020-05-19</span>
-                          </div>
-                          <p class="excerpt">
-                            目前场地处于维护更新阶段，开启时间请留意公告。</p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <!--/公告item li ---------------------------------------------------------------------->
+                      <%
+                                        }
+                                    %>
                 </div>
               </div>
             </div>

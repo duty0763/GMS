@@ -1,3 +1,5 @@
+<%@ page import="dao.Dao" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,18 @@
 
   <!-- Custom Theme Style -->
   <link href="/build/css/custom.min.css" rel="stylesheet">
+  <style>
+    .buttons{padding: 4px 6px;margin: 0px;line-height: 1;font-size: 12px;}
+    form{display: inline-flex}
+  </style>
 </head>
 
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao = new Dao();
+        String role = (String) session.getAttribute("role");%>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -157,6 +165,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="card-box table-responsive">
+
                       <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
@@ -164,34 +173,86 @@
                             <th>器材</th>
                             <th>收费标准</th>
                             <th>场地状态</th>
+                            <th>预约时间</th>
+                            <th>操作</th>
                           </tr>
                         </thead>
                         <tbody>
+                        <%
+                          String sql = "SELECT * FROM ground ";  //查询语句
+                          ResultSet rs = dao.executeQuery(sql);
+                          while (rs.next()) {
+                        %>
                           <tr>
-                            <td>001</td>
-                            <td>足球</td>
-                            <td>10元/小时</td>
-                            <td>9-13上午</td>
+                            <td><%=rs.getString("groundId")%></td>
+                            <td><%=rs.getString("groundEqu")%></td>
+                            <td><%=rs.getString("groundFee")%></td>
+                            <td><%=rs.getString("groundStatus")%></td>
+                            <td><select id="useTime">
+                              <option value="今天上午8.30-11.30">今天上午8.30-11.30</option>
+                              <option value="今天下午2.30-5.30">今天下午2.30-5.30</option>
+                              <option value="整日">整日</option>
+                              <option value="明天上午8.30-11.30">明天上午8.30-11.30</option>
+                              <option value="明天下午2.30-5.30">明天下午2.30-5.30</option>
+                              <option value="明天整日">明天整日</option>
+                              <option value="后天上午8.30-11.30">后天上午8.30-11.30</option>
+                              <option value="后天下午2.30-5.30">后天下午2.30-5.30</option>
+                              <option value="后天整日">后天整日</option>
+                            </select></td>
+                            <td>
+                              <form action="orderGround1.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">普通预约</button></form>
+                              <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%>
+                              <form action="orderGround2.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">校队预约</button></form>
+                              <%}%>
+                            </td>
                           </tr>
-                          <tr>
-                            <td>002</td>
-                            <td>篮球</td>
-                            <td>5元/小时</td>
-                            <td>9-13校队</td>
-                          </tr>
-                          <tr>
-                            <td>003</td>
-                            <td>羽毛球</td>
-                            <td>5元/小时</td>
-                            <td>空闲</td>
-                          </tr>
-                          <tr>
-                            <td>004</td>
-                            <td>乒乓球</td>
-                            <td>5元/小时</td>
-                            <td>周三上课</td>
-                          </tr>
-                        
+                        <%
+                          }
+                        %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>场地预约</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                      <table id="table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                        <tr>
+                          <th>场地号</th>
+                          <th>器材</th>
+                          <th>收费标准</th>
+                          <th>预约时间</th>
+                          <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% Dao dao1 = new Dao();
+                          String sql1 = "SELECT * FROM ground WHERE groundStatus=1 OR groundStatus=2 OR groundStatus=3 ";  //查询语句
+                          ResultSet rs1 = dao1.executeQuery(sql1);
+                          while (rs1.next()) {
+                        %>
+                        <tr>
+                          <td><%=rs1.getString("groundId")%></td>
+                          <td><%=rs1.getString("groundEqu")%></td>
+                          <td><%=rs1.getString("groundFee")%></td>
+                          <td><%=rs1.getString("useTime")%></td>
+                          <td><form action="orderGround3.action" method="post" ><input type="hidden" name="groundId" value="<%=rs1.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-danger">取消预约</button></form></td>
+                        </tr>
+                         <%}%>
                         </tbody>
                       </table>
                     </div>
@@ -216,7 +277,7 @@
   </div>
 
 
-  
+
   <!----------------------------------------- JS引用 ----------------------------------------->
   <!-- jQuery -->
   <script src="/vendors/jquery/dist/jquery.min.js"></script>
@@ -247,7 +308,10 @@
 
   <!-- Custom Theme Scripts -->
   <script src="/build/js/custom.min.js"></script>
-
+  <script>
+    document.getElementsByName("useTime")[0].value=document.getElementById("useTime").value;
+    document.getElementsByName("useTime")[1].value=document.getElementById("useTime").value;
+  </script>
 </body>
 
 </html>

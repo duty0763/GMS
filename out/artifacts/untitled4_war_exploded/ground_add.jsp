@@ -152,37 +152,37 @@
           <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
               <div class="x_title">
-                <h2>发布馆内设施罚款条例公告</h2>
+                <h2>添加场地</h2>
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form action="addGround.action" class="form-horizontal form-label-left"  method="post">
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">场地号
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" >场地号
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="userId" name="userId" required="required" class="form-control">
+                      <input type="text" id="groundId" name="groundId" required="" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">场地器材
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">场地器材
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="major" name="major" required="required" class="form-control">
+                      <input type="text" id="groundEqu" name="groundEqu" required="" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">场地收费
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">场地收费
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="name" name="name" required="required" class="form-control ">
+                      <input type="text" id="groundFee" name="groundFee" required="" class="form-control ">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">申请人
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">场地名称
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="password" name="password" required="required" class="form-control">
+                      <input type="text" id="groundName" name="groundName" required="" class="form-control">
                     </div>
                   </div>
           

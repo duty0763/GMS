@@ -21,6 +21,7 @@
             <result name="success">/index.jsp</result>
             <result name="unLogin">/login.jsp</result>
             <result name="updateManger">/user_search.jsp</result>
+            <result name="updateGround">/ground_search.jsp</result>
         </global-results>
         <action name="login" class="com.UserAction" method="login"/>
         <action name="register" class="com.UserAction" method="register"/>
@@ -29,5 +30,10 @@
         <action name="finePublish" class="com.UserAction" method="finePublish"/>
         <action name="addManager" class="com.UserAction" method="addManager"/>
         <action name="deleteManager" class="com.UserAction" method="deleteManager"/>
+        <action name="addGround" class="com.GroundAction" method="addGround"></action>
+        <action name="publishGround" class="com.GroundAction" method="publishGround"></action>
+        <action name="orderGround1" class="com.GroundAction" method="orderGround1"></action>
+        <action name="orderGround2" class="com.GroundAction" method="orderGround2"></action>
+        <action name="orderGround3" class="com.GroundAction" method="orderGround3"></action>
     </package>
 </struts>

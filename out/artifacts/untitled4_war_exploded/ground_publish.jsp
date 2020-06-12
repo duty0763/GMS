@@ -157,26 +157,26 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form data-parsley-validate="" class="form-horizontal form-label-left" action="publishGround.action" method="post">
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">内容
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">内容
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <textarea class="form-control" rows="15" placeholder="请在此处输入内容"></textarea>
+                        <textarea class="form-control" rows="15" placeholder="请在此处输入内容" name="noticeText"></textarea>
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">发布人
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" >发布人
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="publishUser" name="publishUser" required="required" class="form-control">
+                      <input type="text" id="publishUser" name="noticePublisher" required="required" class="form-control" >
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">电话号码
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" >发布标题
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="phone" name="phone" required="required" class="form-control">
+                      <input type="text" id="phone" name="noticeTitle" required="required" class="form-control">
                     </div>
                   </div>
 

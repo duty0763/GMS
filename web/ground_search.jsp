@@ -33,6 +33,7 @@
   <link href="/build/css/custom.min.css" rel="stylesheet">
   <style>
     .buttons{padding: 4px 6px;margin: 0px;line-height: 1;font-size: 12px;}
+    form{display: inline-flex}
   </style>
 </head>
 
@@ -170,7 +171,7 @@
                           <tr>
                             <th>场地号</th>
                             <th>器材</th>
-                            <th>收费标准</th>
+                            <th>收费标准 元/时</th>
                             <th>场地状态</th>
                             <th>预约时间</th>
                             <th>操作</th>
@@ -187,9 +188,7 @@
                             <td><%=rs.getString("groundEqu")%></td>
                             <td><%=rs.getString("groundFee")%></td>
                             <td><%=rs.getString("groundStatus")%></td>
-                            <td><select name="useTime"   <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%>form="2"  <%
-                              }
-                            %><%if (role.equals("1")){%>  form="1"    <%}%>>
+                            <td><select id="useTime">
                               <option value="今天上午8.30-11.30">今天上午8.30-11.30</option>
                               <option value="今天下午2.30-5.30">今天下午2.30-5.30</option>
                               <option value="整日">整日</option>
@@ -199,11 +198,13 @@
                               <option value="后天上午8.30-11.30">后天上午8.30-11.30</option>
                               <option value="后天下午2.30-5.30">后天下午2.30-5.30</option>
                               <option value="后天整日">后天整日</option>
-
                             </select></td>
-                            <td><form action="orderGround1.action" method="post" id="1"><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">普通预约</button></form>
-                              <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%> <form action="orderGround2.action" method="post" id="2"><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">校队预约</button></form><%}%></td>
-
+                            <td>
+                              <form action="orderGround1.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">普通预约</button></form>
+                              <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%>
+                              <form action="orderGround2.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-success">校队预约</button></form>
+                              <%}%>
+                            </td>
                           </tr>
                         <%
                           }
@@ -276,7 +277,7 @@
   </div>
 
 
-  
+
   <!----------------------------------------- JS引用 ----------------------------------------->
   <!-- jQuery -->
   <script src="/vendors/jquery/dist/jquery.min.js"></script>
@@ -307,7 +308,10 @@
 
   <!-- Custom Theme Scripts -->
   <script src="/build/js/custom.min.js"></script>
-
+  <script>
+    document.getElementsByName("useTime")[0].value=document.getElementById("useTime").value;
+    document.getElementsByName("useTime")[1].value=document.getElementById("useTime").value;
+  </script>
 </body>
 
 </html>
