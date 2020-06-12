@@ -185,7 +185,6 @@ public class UserAction extends ActionSupport {
     public String finePublish() {
         String sql = "insert into fineAnnouncement(title,content,publisher,phone) values('" + getTitle() + "','" + getContent() + "','" + getPublisher() + "','" + getPhone() + "')";
         int i = dao.executeUpdate(sql);
-        System.out.println(sql);
         if (i > -1) {
             return "success";
         }
