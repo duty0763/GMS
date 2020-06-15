@@ -1,4 +1,6 @@
+<%@ page import="dao.Dao" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +36,10 @@
   <div class="container body">
     <div class="main_container">
 
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao=new Dao();
+        String role = (String) session.getAttribute("role");
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -43,7 +48,6 @@
                 </small></span></a>
           </div>
           <div class="clearfix"></div>
-          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <ul class="nav side-menu">
@@ -72,10 +76,7 @@
                     <%
                       }
                     %>
-                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
                     <li><a href="ground_search.jsp">场地查询</a></li>
-                    <!--在底部放置预约的选项
-                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
                     <li><a href="ground_announcement.jsp">场地公告</a></li>
                   </ul>
                 </li>
@@ -105,13 +106,10 @@
                       if (role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="equipment_add.jsp">新增器材</a></li>
-                    <!--器材号不用写 主键自增就行-->
                     <%
                       }
                     %>
                     <li><a href="equipment_search.jsp">器材查询</a></li>
-                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
-                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                     <li><a href="equipment_return.jsp">器材归还</a></li>
                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
@@ -120,8 +118,6 @@
               </ul>
             </div>
           </div>
-          <!-- /sidebar menu -->
-
         </div>
       </div>
       <!--/左边导航栏 ---------------------------------------------------------------------->
@@ -159,31 +155,25 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>器材名称</th>
+                      <th>器材租用价格</th>
+                      <th>器材赔偿价格</th>
                     </tr>
                   </thead>
                   <tbody>
+                  <%
+                    String sql = "SELECT * FROM equipment";  //查询语句
+                    ResultSet rs = dao.executeQuery(sql);
+                    while (rs.next()) {
+                  %>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td><%=rs.getString("equName")%></td>
+                      <td><%=rs.getString("equPrice")%>元/小时</td>
+                      <td><%=rs.getString("equRenPrice")%>元</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                  <%
+                    }
+                  %>
                   </tbody>
                 </table>
 

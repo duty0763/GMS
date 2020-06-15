@@ -1,4 +1,7 @@
+<%@ page import="dao.Dao" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,98 +38,91 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
-      <!--左边导航栏 ---------------------------------------------------------------------->
-      <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
-          <div class="navbar nav_title" style="border: 0;">
-            <a href="index.jsp" class="site_title"><i class="fa fa-home"></i><span><small> 海大体育馆管理系统
+      <%
+          Dao dao =new Dao();
+          String role = (String) session.getAttribute("role");
+      %>
+        <!--左边导航栏 ---------------------------------------------------------------------->
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.jsp" class="site_title"><i class="fa fa-home"></i><span><small> 海大体育馆管理系统
                 </small></span></a>
-          </div>
-          <div class="clearfix"></div>
-          <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-            <div class="menu_section">
-              <ul class="nav side-menu">
-                <li><a><i class="fa fa-male"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="index.jsp">馆内设施罚款条例公告</a></li>
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
-                    <li><a href="user_search.jsp">查询用户</a></li>
-                    <%
-                      }
-                    %>
-                    <li><a href="password_change.jsp">修改密码</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-university"></i> 场地管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
+                </div>
+                <div class="clearfix"></div>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-male"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="index.jsp">馆内设施罚款条例公告</a></li>
+                                    <%
+                                        if (role.equals("2") || role.equals("3")) {
+                                    %>
+                                    <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
+                                    <li><a href="user_search.jsp">查询用户</a></li>
+                                    <%
+                                        }
+                                    %>
+                                    <li><a href="password_change.jsp">修改密码</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-university"></i> 场地管理 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
 
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="ground_add.jsp">添加场地</a></li>
-                    <li><a href="ground_publish.jsp">发布场地公告</a></li>
-                    <%
-                      }
-                    %>
-                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
-                    <li><a href="ground_search.jsp">场地查询</a></li>
-                    <!--在底部放置预约的选项
-                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
-                    <li><a href="ground_announcement.jsp">场地公告</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <%
-                      if (role.equals("1") || role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="match_publish.jsp">赛事发布</a></li>
-                    <%
-                      }
-                    %>
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="referee_publish.jsp">发布裁判简介公告</a></li>
-                    <%
-                      }
-                    %>
-                    <li><a href="match_search.jsp">赛事信息查询</a></li>
-                    <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-wrench"></i> 器材管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="equipment_add.jsp">新增器材</a></li>
-                    <!--器材号不用写 主键自增就行-->
-                    <%
-                      }
-                    %>
-                    <li><a href="equipment_search.jsp">器材查询</a></li>
-                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
-                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
-                    <li><a href="equipment_borrow.jsp">租用器材</a></li>
-                    <li><a href="equipment_return.jsp">器材归还</a></li>
-                    <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
-                  </ul>
-                </li>
-              </ul>
+                                    <%
+                                        if (role.equals("2") || role.equals("3")) {
+                                    %>
+                                    <li><a href="ground_add.jsp">添加场地</a></li>
+                                    <li><a href="ground_publish.jsp">发布场地公告</a></li>
+                                    <%
+                                        }
+                                    %>
+                                    <li><a href="ground_search.jsp">场地查询</a></li>
+                                    <li><a href="ground_announcement.jsp">场地公告</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <%
+                                        if (role.equals("1") || role.equals("2") || role.equals("3")) {
+                                    %>
+                                    <li><a href="match_publish.jsp">赛事发布</a></li>
+                                    <%
+                                        }
+                                    %>
+                                    <%
+                                        if (role.equals("2") || role.equals("3")) {
+                                    %>
+                                    <li><a href="referee_publish.jsp">发布裁判简介公告</a></li>
+                                    <%
+                                        }
+                                    %>
+                                    <li><a href="match_search.jsp">赛事信息查询</a></li>
+                                    <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-wrench"></i> 器材管理 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <%
+                                        if (role.equals("2") || role.equals("3")) {
+                                    %>
+                                    <li><a href="equipment_add.jsp">新增器材</a></li>
+                                    <%
+                                        }
+                                    %>
+                                    <li><a href="equipment_search.jsp">器材查询</a></li>
+                                    <li><a href="equipment_borrow.jsp">租用器材</a></li>
+                                    <li><a href="equipment_return.jsp">器材归还</a></li>
+                                    <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- /sidebar menu -->
-
         </div>
-      </div>
-      <!--/左边导航栏 ---------------------------------------------------------------------->
-
+        <!--/左边导航栏 ---------------------------------------------------------------------->
 
 
       <!--上边信息栏 ---------------------------------------------------------------------->
@@ -147,7 +143,9 @@
 
 
       <!--内容 ---------------------------------------------------------------------->
+
       <div class="right_col" role="main">
+          <form action="ordAdd.action" method="post">
         <div class="row">
           <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
@@ -170,42 +168,51 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <%
+                            String sql = "SELECT * FROM equipment";  //查询语句
+                            String sql2="SELECT equName,renNum FROM `order` WHERE ordState='0'";
+                            ResultSet rs = dao.executeQuery(sql2);
+                            ArrayList equName =new ArrayList();
+                            ArrayList renNum =new ArrayList();
+                            String name;
+                            String name2;
+                            int num;
+                            while (rs.next()){
+                     equName.add(rs.getString("equName"));
+                                renNum.add(rs.getInt("renNum"));
+                            }
+                            rs=dao.executeQuery(sql);
+//                            while (rs.next()) {
+                                // num=rs.getInt("equNum");
+//                                while (rs2.next()){
+//                                    if (rs.getString("equName").equals(rs2.getString("equName"))){
+//                                        num -= rs2.getInt("renNum");
+//                                    }
+//                                }
+                            while (rs.next()){
+                                num=rs.getInt("equNum")-rs.getInt("equMaiNum");
+                                for (int i=0;i<equName.size();i++){
+                                    name=(String)equName.get(i);
+                                    name2=rs.getString("equName");
+                                    if(name2.equals(name)){
+                                        num -= (int)renNum.get(i);
+                                    }
+                                }
+                        %>
                           <tr>
-                            <td>001</td>
-                            <td>羽毛球拍</td>
-                            <td>100</td>
-                            <td>65</td>
-                            <td><input type="number " ></td>
+                              <td><%=rs.getString("equId")%>
+                              </td>
+                              <td><%=rs.getString("equName")%><input type="hidden" name="equName"value="<%=rs.getString("equName")%>">
+                              </td>
+                              <td><%=num%>
+                              </td>
+                              <td><%=rs.getFloat("equPrice")%>/小时</td>
+                              <td><input name="renNum" type="number" value="0"></td>
                           </tr>
-                          <tr>
-                            <td>201711701302</td>
-                            <td>范闲</td>
-                            <td>13178477392</td>
-                            <td>羽毛球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701303</td>
-                            <td>司理理</td>
-                            <td>13178477393</td>
-                            <td>排球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701304</td>
-                            <td>陈萍萍</td>
-                            <td>13178477394</td>
-                            <td>乒乓球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701305</td>
-                            <td>李云睿</td>
-                            <td>13178477395</td>
-                            <td>篮球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                        
+                        <%
+                            }
+                        %>
+
                         </tbody>
                       </table>
                     </div>
@@ -214,14 +221,16 @@
               </div>
             </div>
           </div>
+            <div style="margin: 0 auto;">
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-primary">重置</button>
+            </div>
         </div>
         <div class="row">
-            <div style="margin: 0 auto;">
-                <button>提交</button>
-                <button>重置</button>
-            </div>
+
             
         </div>
+          </form>
       </div>
       <!--/内容 ---------------------------------------------------------------------->
 
@@ -268,6 +277,11 @@
 
   <!-- Custom Theme Scripts -->
   <script src="/build/js/custom.min.js"></script>
+<script>
+    function renNum() {
+        alert("1");
+    }
+</script>
 
 </body>
 

@@ -1,4 +1,6 @@
+<%@ page import="dao.Dao" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +36,10 @@
   <div class="container body">
     <div class="main_container">
 
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao=new Dao();
+        String role = (String) session.getAttribute("role");
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -150,31 +155,25 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>器材名称</th>
+                      <th>器材租用价格</th>
+                      <th>器材赔偿价格</th>
                     </tr>
                   </thead>
                   <tbody>
+                  <%
+                    String sql = "SELECT * FROM equipment";  //查询语句
+                    ResultSet rs = dao.executeQuery(sql);
+                    while (rs.next()) {
+                  %>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td><%=rs.getString("equName")%></td>
+                      <td><%=rs.getString("equPrice")%>元/小时</td>
+                      <td><%=rs.getString("equRenPrice")%>元</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                  <%
+                    }
+                  %>
                   </tbody>
                 </table>
 

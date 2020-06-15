@@ -22,6 +22,11 @@
             <result name="unLogin">/login.jsp</result>
             <result name="updateManger">/user_search.jsp</result>
             <result name="updateGround">/ground_search.jsp</result>
+            <result name="equAddSuccess" type="redirect">/equipment_add.jsp</result>
+            <result name="ordAddSuccess" type="redirect">equipment_borrow.jsp</result>
+            <result name="equRetSuccess" type="redirect">equipment_return.jsp</result>
+            <result name="manCheSuccess" type="redirect">equipment_return.jsp</result>
+            <result name="changeSuccess" type="redirect">equipment_search.jsp</result>
         </global-results>
         <action name="login" class="com.UserAction" method="login"/>
         <action name="register" class="com.UserAction" method="register"/>
@@ -39,5 +44,12 @@
         <action name="setMatch" class="com.MatchAction" method="setMatch"/>
         <action name="setPublish" class="com.MatchAction" method="setPublish"/>
         <action name="deleteMatch" class="com.MatchAction" method="deleteMatch"/>
+        <!-- 器材管理action -->
+        <action name="equAdd" class="com.EquAction" method="equAdd" />
+        <action name="ordAdd" class="com.OrderAction" method="ordAdd"/>
+        <action name="equRet" class="com.OrderAction" method="equReu"/>
+        <action name="manCheck" class="com.OrderAction" method="manCheck"/>
+        <action name="delEqu" class="com.EquAction" method="deleteEqu"/>
+        <action name="maiEqu" class="com.EquAction" method="mainEqu"/>
     </package>
 </struts>

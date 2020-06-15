@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +119,6 @@
         <!--/左边导航栏 ---------------------------------------------------------------------->
 
 
-
       <!--上边信息栏 ---------------------------------------------------------------------->
       <div class="top_nav">
         <div class="nav_menu">
@@ -137,7 +137,6 @@
 
 
 
-
       <!--内容 ---------------------------------------------------------------------->
       <div class="right_col" role="main">
         <div class="row">
@@ -148,33 +147,33 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <form data-parsley-validate="" class="form-horizontal form-label-left">
+                <form action="equAdd.action" method="post" id="saveReportForm"  data-parsley-validate="" class="form-horizontal form-label-left">
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">器材名称
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="userId" name="userId" required="required" class="form-control">
+                      <input type="text" name="equName" required="required" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">数量
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="major" name="major" required="required" class="form-control">
+                      <input type="number"  name="equNum" required="required" class="form-control">
                     </div>
                   </div>
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">租用价格
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="name" name="name" required="required" class="form-control ">
+                      <input type="number" id="equPrice" name="equPrice" required="required" class="form-control ">
                     </div>
                   </div>
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">购买价格
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="text" id="password" name="password" required="required" class="form-control">
+                      <input type="number" id="equRenPrice" name="equRenPrice" required="required" class="form-control">
                     </div>
                   </div>
                   
@@ -183,7 +182,7 @@
                     <div class="col-md-6 col-sm-6 offset-md-3">
                       <button class="btn btn-primary" type="button">取消</button>
                       <button class="btn btn-primary" type="reset">重置</button>
-                      <button type="submit" class="btn btn-success">提交</button>
+                      <button type="submit" class="btn btn-success" onclick="checkAdd()">提交</button>
                     </div>
                   </div>
                 </form>
@@ -255,7 +254,12 @@
   <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
   <!-- Custom Theme Scripts -->
   <script src="/build/js/custom.min.js"></script>
+  <script>
+    function checkAdd () {
+        Console.log(${sessionScope.equAdd});
 
+    }
+  </script>
 </body>
 
 </html>

@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
+<%@ page import="dao.Dao" %>
+<%@ page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +39,11 @@
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
+      <%
+        Dao dao=new Dao();
+        String userId=(String) session.getAttribute("userId");
+        String role = (String) session.getAttribute("role");
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -44,7 +52,6 @@
                 </small></span></a>
           </div>
           <div class="clearfix"></div>
-          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <ul class="nav side-menu">
@@ -73,10 +80,7 @@
                     <%
                       }
                     %>
-                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
                     <li><a href="ground_search.jsp">场地查询</a></li>
-                    <!--在底部放置预约的选项
-                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
                     <li><a href="ground_announcement.jsp">场地公告</a></li>
                   </ul>
                 </li>
@@ -106,13 +110,10 @@
                       if (role.equals("2") || role.equals("3")) {
                     %>
                     <li><a href="equipment_add.jsp">新增器材</a></li>
-                    <!--器材号不用写 主键自增就行-->
                     <%
                       }
                     %>
                     <li><a href="equipment_search.jsp">器材查询</a></li>
-                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
-                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
                     <li><a href="equipment_borrow.jsp">租用器材</a></li>
                     <li><a href="equipment_return.jsp">器材归还</a></li>
                     <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
@@ -121,12 +122,9 @@
               </ul>
             </div>
           </div>
-          <!-- /sidebar menu -->
-
         </div>
       </div>
       <!--/左边导航栏 ---------------------------------------------------------------------->
-
 
 
       <!--上边信息栏 ---------------------------------------------------------------------->
@@ -148,6 +146,7 @@
 
       <!--内容 ---------------------------------------------------------------------->
       <div class="right_col" role="main">
+
         <div class="row">
           <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
@@ -167,47 +166,80 @@
                             <th>数量</th>
                             <th>租用时间</th>
                             <th>租用状态</th>
-                            
+                            <th>归还</th>
                           </tr>
                         </thead>
                         <tbody>
+                        <%
+                          String sql = "SELECT * FROM `order`";  //查询语句
+                          ResultSet rs = dao.executeQuery(sql);
+                          String timeStamp;
+                          Date date=new Date();
+                          String uTime;
+                          SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                          String nowTime=df.format(date);
+                          while (rs.next()) {
+                             timeStamp = df.format(rs.getTimestamp("ordTime"));
+                            Date d1 = df.parse(timeStamp);
+                            Date d2 = df.parse(nowTime);
+                            uTime=(((d2.getTime() - d1.getTime()) / (60 * 60 * 1000)) % 24) + "小时"+(((d2.getTime() - d1.getTime()) / (60*1000)+480) % 60) + "分钟";
+                        %>
                           <tr>
-                            <td>001</td>
-                            <td>羽毛球拍</td>
-                            <td>2</td>
-                            <td>2小时十分钟</td>
+                              <form action="equRet.action" method="post">
+                            <%if (rs.getString("userId").equals(userId)) {%>
+                            <td><%=rs.getString("ordId")%></td>
+                              <input type="hidden" name="ordId"value="<%=rs.getString("ordId")%>">
+                            <td><%=rs.getString("equName")%></td>
+                            <td><%=rs.getString("renNum")%></td>
+                            <%if (rs.getString("ordState").equals("0")) {%>
+                            <td><%=uTime%></td>
+                              <input type="hidden" name="ordUTime"value="<%=uTime%>">
+                              <%}%>
+                              <%if (rs.getString("ordState").equals("1")||rs.getString("ordState").equals("2")) {%>
+                              <td><%=rs.getString("ordUTime")%></td>
+                              <%}%>
+                            <%if (rs.getString("ordState").equals("0")) {%>
                             <td>使用中</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <%}%>
+                            <%if (rs.getString("ordState").equals("1")||rs.getString("ordState").equals("2")) {%>
+                            <td>已结账</td>
+                            <%}%>
+                            <%if (rs.getString("ordState").equals("0")) {%>
+                              <td>
+                                  <button type="submit" class="buttons btn btn-success">归还</button>
+                              </td>
+                            <%}%>
+                            <%if (rs.getString("ordState").equals("1")) {%>
+                            <td>等待管理员确认</td>
+                            <%}%>
+                             <%if (rs.getString("ordState").equals("2")) {%>
+                             <td>订单已完成</td>
+                             <%}%>
+                            <%}%>
+                              </form>
                           </tr>
-                          <tr>
-                            <td>201711701302</td>
-                            <td>范闲</td>
-                            <td>13178477392</td>
-                            <td>羽毛球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701303</td>
-                            <td>司理理</td>
-                            <td>13178477393</td>
-                            <td>排球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701304</td>
-                            <td>陈萍萍</td>
-                            <td>13178477394</td>
-                            <td>乒乓球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701305</td>
-                            <td>李云睿</td>
-                            <td>13178477395</td>
-                            <td>篮球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                        
+                        <%if (role.equals("2")||role.equals("3")) {
+                        %>
+                        <tr>
+                            <form action="manCheck.action" method="post">
+                                <%if (rs.getString("ordState").equals("1")) {%>
+                                <td><%=rs.getString("ordId")%></td>
+                                <input type="hidden" name="ordId"value="<%=rs.getString("ordId")%>">
+                                <td><%=rs.getString("equName")%></td>
+                                <td><%=rs.getString("renNum")%></td>
+                                <td><%=rs.getString("ordUTime")%></td>
+                                <td>已结账</td>
+                                <td>
+                                    <button type="submit" class="buttons btn btn-success">确认归还</button>
+                                </td>
+
+                                <%}%>
+                            </form>
+                        </tr>
+                        <%}%>
+                        <%
+                          }
+                        %>
                         </tbody>
                       </table>
                     </div>
@@ -217,13 +249,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
-            <div style="margin: 0 auto;">
-                <button>归还结账</button>
-                <button>重置</button>
-            </div>
-            
-        </div>
+
       </div>
       <!--/内容 ---------------------------------------------------------------------->
 

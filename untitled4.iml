@@ -31,6 +31,6 @@
     <orderEntry type="library" name="Struts 2-2.5.14.1" level="project" />
     <orderEntry type="library" name="commons-fileupload" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.0.8-bin" level="project" />
-    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="servlet-api" level="application" />
   </component>
 </module>

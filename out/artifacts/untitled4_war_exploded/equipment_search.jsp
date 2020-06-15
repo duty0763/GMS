@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@page import="java.sql.*" %>
+<%@ page import="dao.Dao" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -9,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>DataTables | Gentelella</title>
+  <title>用户查询</title>
 
   <!-- Bootstrap -->
   <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -30,184 +32,202 @@
 
   <!-- Custom Theme Style -->
   <link href="/build/css/custom.min.css" rel="stylesheet">
+  <style>
+    .buttons{padding: 4px 6px;margin: 0px;line-height: 1;font-size: 12px;}
+  </style>
 </head>
 
 <body class="nav-md">
-  <div class="container body">
-    <div class="main_container">
-      <%String role = (String) session.getAttribute("role");%>
-      <!--左边导航栏 ---------------------------------------------------------------------->
-      <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
-          <div class="navbar nav_title" style="border: 0;">
-            <a href="index.jsp" class="site_title"><i class="fa fa-home"></i><span><small> 海大体育馆管理系统
+<div class="container body">
+  <div class="main_container">
+
+    <%
+      Dao dao = new Dao();
+      String role = (String) session.getAttribute("role");
+    %>
+    <!--左边导航栏 ---------------------------------------------------------------------->
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="index.jsp" class="site_title"><i class="fa fa-home"></i><span><small> 海大体育馆管理系统
                 </small></span></a>
-          </div>
-          <div class="clearfix"></div>
-          <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-            <div class="menu_section">
-              <ul class="nav side-menu">
-                <li><a><i class="fa fa-male"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="index.jsp">馆内设施罚款条例公告</a></li>
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
-                    <li><a href="user_search.jsp">查询用户</a></li>
-                    <%
-                      }
-                    %>
-                    <li><a href="password_change.jsp">修改密码</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-university"></i> 场地管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="ground_add.jsp">添加场地</a></li>
-                    <li><a href="ground_publish.jsp">发布场地公告</a></li>
-                    <%
-                      }
-                    %>
-                    <!--0空闲 1租用 2校队占用 3赛事占用 4禁用-->
-                    <li><a href="ground_search.jsp">场地查询</a></li>
-                    <!--在底部放置预约的选项
-                          在如果有预约 在预约下面显示预约信息（包括修改和删除功能）-->
-                    <li><a href="ground_announcement.jsp">场地公告</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <%
-                      if (role.equals("1") || role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="match_publish.jsp">赛事发布</a></li>
-                    <%
-                      }
-                    %>
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="referee_publish.jsp">发布裁判简介公告</a></li>
-                    <%
-                      }
-                    %>
-                    <li><a href="match_search.jsp">赛事信息查询</a></li>
-                    <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-wrench"></i> 器材管理 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <%
-                      if (role.equals("2") || role.equals("3")) {
-                    %>
-                    <li><a href="equipment_add.jsp">新增器材</a></li>
-                    <!--器材号不用写 主键自增就行-->
-                    <%
-                      }
-                    %>
-                    <li><a href="equipment_search.jsp">器材查询</a></li>
-                    <!--或者查询放两个查询列表 一个是正常的器材查询 一个是维修的查询-->
-                    <!--在器材每一个item右边放一个增加数量和减少数量的输入框 和buttton 改变数量 再加一个删除按钮-->
-                    <li><a href="equipment_borrow.jsp">租用器材</a></li>
-                    <li><a href="equipment_return.jsp">器材归还</a></li>
-                    <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- /sidebar menu -->
-
         </div>
-      </div>
-      <!--/左边导航栏 ---------------------------------------------------------------------->
+        <div class="clearfix"></div>
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <ul class="nav side-menu">
+              <li><a><i class="fa fa-male"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="index.jsp">馆内设施罚款条例公告</a></li>
+                  <%
+                    if (role.equals("2") || role.equals("3")) {
+                  %>
+                  <li><a href="announcement_publish.jsp">发布馆内设施罚款条例公告</a></li>
+                  <li><a href="user_search.jsp">查询用户</a></li>
+                  <%
+                    }
+                  %>
+                  <li><a href="password_change.jsp">修改密码</a></li>
+                </ul>
+              </li>
+              <li><a><i class="fa fa-university"></i> 场地管理 <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
 
-
-      <!--上边信息栏 ---------------------------------------------------------------------->
-      <div class="top_nav">
-        <div class="nav_menu">
-          <div class="nav toggle">
-            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-          </div>
-          <nav class="nav navbar-nav">
-            <ul class=" navbar-right">
-              <span class="pull-right">欢迎您，${sessionScope.userName}!&nbsp;&nbsp;&nbsp; <a href="logout.action"> 退出登录 <i class="fa fa-sign-out"></i></a></span>
-
+                  <%
+                    if (role.equals("2") || role.equals("3")) {
+                  %>
+                  <li><a href="ground_add.jsp">添加场地</a></li>
+                  <li><a href="ground_publish.jsp">发布场地公告</a></li>
+                  <%
+                    }
+                  %>
+                  <li><a href="ground_search.jsp">场地查询</a></li>
+                  <li><a href="ground_announcement.jsp">场地公告</a></li>
+                </ul>
+              </li>
+              <li><a><i class="fa fa-futbol-o"></i> 赛事管理 <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <%
+                    if (role.equals("1") || role.equals("2") || role.equals("3")) {
+                  %>
+                  <li><a href="match_publish.jsp">赛事发布</a></li>
+                  <%
+                    }
+                  %>
+                  <%
+                    if (role.equals("2") || role.equals("3")) {
+                  %>
+                  <li><a href="referee_publish.jsp">发布裁判简介公告</a></li>
+                  <%
+                    }
+                  %>
+                  <li><a href="match_search.jsp">赛事信息查询</a></li>
+                  <li><a href="referee_announcement.jsp">裁判简介公告</a></li>
+                </ul>
+              </li>
+              <li><a><i class="fa fa-wrench"></i> 器材管理 <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <%
+                    if (role.equals("2") || role.equals("3")) {
+                  %>
+                  <li><a href="equipment_add.jsp">新增器材</a></li>
+                  <%
+                    }
+                  %>
+                  <li><a href="equipment_search.jsp">器材查询</a></li>
+                  <li><a href="equipment_borrow.jsp">租用器材</a></li>
+                  <li><a href="equipment_return.jsp">器材归还</a></li>
+                  <li><a href="equipment_charge.jsp">器材收费表准查询</a></li>
+                </ul>
+              </li>
             </ul>
-          </nav>
+          </div>
         </div>
       </div>
-      <!--/上边信息栏 ---------------------------------------------------------------------->
+    </div>
+    <!--/左边导航栏 ---------------------------------------------------------------------->
+
+    <!--上边信息栏 ---------------------------------------------------------------------->
+    <div class="top_nav">
+      <div class="nav_menu">
+        <div class="nav toggle">
+          <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+        </div>
+        <nav class="nav navbar-nav">
+          <ul class=" navbar-right">
+                        <span class="pull-right">欢迎您，${sessionScope.userName}!&nbsp;&nbsp;&nbsp; <a
+                                href="logout.action"> 退出登录 <i class="fa fa-sign-out"></i></a></span>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!--/上边信息栏 ---------------------------------------------------------------------->
 
 
-      <!--内容 ---------------------------------------------------------------------->
-      <div class="right_col" role="main">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 ">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>器材查询</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="card-box table-responsive">
-                      <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>器材号</th>
-                            <th>器材名称</th>
-                            <th>总数量</th>
-                            <th>剩余数量</th>
-                            <th>租用价格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>001</td>
-                            <td>羽毛球拍</td>
-                            <td>100</td>
-                            <td>65</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701302</td>
-                            <td>范闲</td>
-                            <td>13178477392</td>
-                            <td>羽毛球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701303</td>
-                            <td>司理理</td>
-                            <td>13178477393</td>
-                            <td>排球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701304</td>
-                            <td>陈萍萍</td>
-                            <td>13178477394</td>
-                            <td>乒乓球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                          <tr>
-                            <td>201711701305</td>
-                            <td>李云睿</td>
-                            <td>13178477395</td>
-                            <td>篮球场</td>
-                            <td>2.5元/时</td>
-                          </tr>
-                        
-                        </tbody>
-                      </table>
-                    </div>
+    <!--内容 ---------------------------------------------------------------------->
+    <div class="right_col" role="main">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 ">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>器材查询</h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card-box table-responsive">
+                    <table id="datatable" class="table table-striped table-bordered"
+                           style="width:100%">
+                      <thead>
+                      <tr>
+                        <th>器材号</th>
+                        <th>器材名称</th>
+                        <th>总数量</th>
+                        <th>剩余数量</th>
+                        <th>租用价格</th>
+                        <%if (role.equals("3")||role.equals("2")) {%>
+                        <th>操作数量</th>
+                        <%}%>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <%
+                        String sql = "SELECT * FROM equipment";  //查询语句
+                        String sql2="SELECT equName,renNum FROM `order` WHERE ordState='0'";
+                        ResultSet rs = dao.executeQuery(sql2);
+                        ArrayList equName =new ArrayList();
+                        ArrayList renNum =new ArrayList();
+                        String name;
+                        String name2;
+                        int num;
+                        while (rs.next()){
+                          equName.add(rs.getString("equName"));
+                          renNum.add(rs.getInt("renNum"));
+                        }
+                        rs=dao.executeQuery(sql);
+                        while (rs.next()) {
+                          num=rs.getInt("equNum")-rs.getInt("equMaiNum");
+                          for (int i=0;i<equName.size();i++){
+                            name=(String)equName.get(i);
+                            name2=rs.getString("equName");
+                            if(name2.equals(name)){
+                              num -= (int)renNum.get(i);
+                            }
+                          }
+                      %>
+                      <tr>
+
+                        <td><%=rs.getString("equId")%>
+                        </td>
+                        <td><%=rs.getString("equName")%>
+                        </td>
+                        <td><%=rs.getString("equNum")%>
+                        </td>
+                        <td><%=num%>
+                        </td>
+                        <td><%=rs.getFloat("equPrice")%>/小时</td>
+                          <%if (role.equals("3")||role.equals("2")) {%>
+                        <td>
+                          <form action="delEqu.action" method="post" >
+                            <input type="number" name="changeNum" style="width: 50px" min="0">
+                            <input type="hidden" name="equId" value="<%=rs.getString("equId")%>">
+                            <input type="hidden" name="equNum" value="<%=rs.getInt("equNum")%>">
+                            <button type="submit" class="buttons btn btn-success" >删除器材</button></form>
+                          <form action="maiEqu.action" method="post" >
+                            <input type="number" name="changeNum" style="width: 50px" min="0">
+                            <input type="hidden" name="equId" value="<%=rs.getString("equId")%>">
+                            <input type="hidden" name="maiNum" value="<%=rs.getInt("equMaiNum")%>">
+                            <button type="submit" class="buttons btn btn-success">维护器材</button></form>
+                        </td>
+
+                          <%}%>
+                      </tr>
+                      <%
+                        }
+                      %>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -215,52 +235,54 @@
           </div>
         </div>
       </div>
-      <!--/内容 ---------------------------------------------------------------------->
-
-
-
-      <!--底部 ---------------------------------------------------------------------->
-      <footer>
-        <div class="pull-right">GDOU_Managerment_System</div>
-        <div class="clearfix"></div>
-      </footer>
-      <!--/底部 ---------------------------------------------------------------------->
     </div>
+    <!--/内容 ---------------------------------------------------------------------->
+
+
+    <!--底部 ---------------------------------------------------------------------->
+    <footer>
+      <div class="pull-right">GDOU_Managerment_System</div>
+      <div class="clearfix"></div>
+    </footer>
+    <!--/底部 ---------------------------------------------------------------------->
+
   </div>
+</div>
 
 
-  
-  <!----------------------------------------- JS引用 ----------------------------------------->
-  <!-- jQuery -->
-  <script src="/vendors/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- FastClick -->
-  <script src="/vendors/fastclick/lib/fastclick.js"></script>
-  <!-- NProgress -->
-  <script src="/vendors/nprogress/nprogress.js"></script>
-  <!-- iCheck -->
-  <script src="/vendors/iCheck/icheck.min.js"></script>
-  <!-- Datatables -->
-  <script src="/vendors/datatables.net/js/jquery.dataTables.js"></script>
-  <script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-  <script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-  <script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-  <script src="/vendors/datatables.net-buttons/js/buttons.jsp5.min.js"></script>
-  <script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-  <script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-  <script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-  <script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-  <script src="/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-  <script src="/vendors/jszip/dist/jszip.min.js"></script>
-  <script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
-  <script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!----------------------------------------- JS引用 ----------------------------------------->
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+<script src="/vendors/iCheck/icheck.min.js"></script>
+<!-- Datatables -->
+<script src="/vendors/datatables.net/js/jquery.dataTables.js"></script>
+<script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.jsp5.min.js"></script>
+<script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="/vendors/jszip/dist/jszip.min.js"></script>
+<script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
 
-  <!-- Custom Theme Scripts -->
-  <script src="/build/js/custom.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="/build/js/custom.min.js"></script>
+<script>
 
+</script>
 </body>
 
 </html>
