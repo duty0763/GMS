@@ -23,6 +23,10 @@ public class GroundAction extends ActionSupport {
     private String noticePtime;
     private String groundEqu;
 
+
+    String userId = ActionContext.getContext().getSession().get("userId").toString();
+
+
     public String getGroundEqu() {
         return groundEqu;
     }
@@ -112,7 +116,7 @@ public class GroundAction extends ActionSupport {
     }
 
 
- //添加场地
+    //添加场地
     public String addGround(){
         String sql = "insert into ground(groundId,groundName,groundFee,groundStatus,useTime,groundEqu) values('" + getGroundId() + "','" + getGroundName() + "','" + getGroundFee() + "','0','0','"+getGroundEqu()+"')";
         int i = dao.executeUpdate(sql);
@@ -122,25 +126,27 @@ public class GroundAction extends ActionSupport {
         }
         return "error";
     }
- //发布场地公告
- public  String publishGround(){
-     String sql = "insert into groundnotice(noticeTitle,noticeText,noticePublisher) values('" + getNoticeTitle() + "','" + getNoticeText() + "','" + getNoticePublisher() + "')";
-     int i = dao.executeUpdate(sql);
-     System.out.println(sql);
-     if (i > -1) {
-         return "success";
-     }
-     return "error";
- }
+    //发布场地公告
+    public  String publishGround(){
+        String sql = "insert into groundnotice(noticeTitle,noticeText,noticePublisher) values('" + getNoticeTitle() + "','" + getNoticeText() + "','" + getNoticePublisher() + "')";
+        int i = dao.executeUpdate(sql);
+        System.out.println(sql);
+        if (i > -1) {
+            return "success";
+        }
+        return "error";
+    }
     //预约场地
+    //普通预约
     public String orderGround1(){
-        String sql = "update ground set groundStatus = '1',useTime='"+getUseTime()+"' where groundId='"+getGroundId()+"'";
+        String sql = "update ground set groundStatus = '1',userId='"+userId+"',useTime='"+getUseTime()+"' where groundId='"+getGroundId()+"'";
         int a = dao.executeUpdate(sql);
         if (a > -1) {
             return "updateGround";
         }
         return "error";
     }
+    //校队预约
     public String orderGround2(){
         String sql = "update ground set groundStatus = '2',useTime='"+getUseTime()+"' where groundId='"+getGroundId()+"'";
         int a = dao.executeUpdate(sql);
@@ -149,6 +155,7 @@ public class GroundAction extends ActionSupport {
         }
         return "error";
     }
+    //取消预约
     public String orderGround3(){
         String sql = "update ground set groundStatus = '0',useTime='0' where groundId='"+getGroundId()+"'";
         int a = dao.executeUpdate(sql);
@@ -156,6 +163,15 @@ public class GroundAction extends ActionSupport {
             return "updateGround";
         }
         return "error";
+    }
+    public String deleteGround(){
+        String sql = "delete from ground where groundId= '" + getGroundId() + "'";
+        int a= dao.executeUpdate(sql);
+        if (a > -1) {
+            return "updateGround";
+        }
+        return "error";
+
     }
 
 }

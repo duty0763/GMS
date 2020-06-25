@@ -13,28 +13,29 @@ public class MatchAction extends ActionSupport {
     private String applicant;
     private String phone;
     private String referee;
-    private Timestamp startTime;
-    private Timestamp endTime;
+    private String startTime;
+    private String endTime;
     private String refereetitle;
     private String refereecontent;
     private String refereepublisher;
     private String refereepublisherphone;
 
-    public Timestamp getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Timestamp getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
+
 
     public String getmId() {
         return mId;
@@ -129,7 +130,7 @@ public class MatchAction extends ActionSupport {
         int i = dao.executeUpdate(sql);
         System.out.println(sql);
         if (i > -1) {
-            return "success";
+            return "setMatchSuccess";
         }
         return "error";
     }
@@ -139,7 +140,7 @@ public class MatchAction extends ActionSupport {
         int i = dao.executeUpdate(sql);
         System.out.println(sql);
         if (i > -1) {
-            return "success";
+            return "setPublishSuccess";
         }
         return "error";
     }
@@ -148,7 +149,7 @@ public class MatchAction extends ActionSupport {
         String sql = "delete from matchdetail where mId= '" + getmId() + "'";
         int a = dao.executeUpdate(sql);
         if (a > -1) {
-            return "success";
+            return "deleteMatchSuccess";
         }
         return "error";
     }

@@ -195,7 +195,7 @@
                                     name=(String)equName.get(i);
                                     name2=rs.getString("equName");
                                     if(name2.equals(name)){
-                                        num -= (int)renNum.get(i);
+                                        num =num- Integer.parseInt(renNum.get(i).toString());
                                     }
                                 }
                         %>

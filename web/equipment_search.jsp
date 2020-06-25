@@ -34,6 +34,7 @@
   <link href="/build/css/custom.min.css" rel="stylesheet">
   <style>
     .buttons{padding: 4px 6px;margin: 0px;line-height: 1;font-size: 12px;}
+    form{display: inline-flex}
   </style>
 </head>
 
@@ -192,7 +193,7 @@
                             name=(String)equName.get(i);
                             name2=rs.getString("equName");
                             if(name2.equals(name)){
-                              num -= (int)renNum.get(i);
+                              num =num- Integer.parseInt(renNum.get(i).toString());
                             }
                           }
                       %>

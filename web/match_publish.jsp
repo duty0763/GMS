@@ -210,12 +210,12 @@
                   <label class="col-form-label col-md-3 col-sm-3 label-align" for="startTime">时间
                   </label>
                   <div class="col-md-3 col-sm-3 ">
-                    <input type="datetime-local" id="startTime" name="startTime" required="required" class="form-control ">
+                    <input type="datetime-local" step="1" id="startTime" name="startTime" required="required" class="form-control ">
                   </div>
                   <label class="col-form-label label-align" for="endTime">至
                   </label>
                   <div class="col-md-3 col-sm-3 ">
-                    <input type="datetime-local" id="endTime" name="endTime" required="required" class="form-control">
+                    <input type="datetime-local" step="1"  id="endTime" name="endTime" required="required" class="form-control">
                   </div>
                 </div>
 

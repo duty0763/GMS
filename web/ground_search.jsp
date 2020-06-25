@@ -42,7 +42,10 @@
     <div class="main_container">
       <%
         Dao dao = new Dao();
-        String role = (String) session.getAttribute("role");%>
+        String role = (String) session.getAttribute("role");
+        String userId=(String) session.getAttribute("userId");
+
+      %>
       <!--左边导航栏 ---------------------------------------------------------------------->
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
@@ -216,6 +219,7 @@
                                 <form action="orderGround1.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><a class="buttons btn btn-success" onclick="submit(this)" style="color: #FFFFFF;cursor:pointer">普通预约</a></form>
                               <%if (role.equals("3")||role.equals("2")||role.equals("1")) {%>
                               <form action="orderGround2.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><a class="buttons btn btn-success" onclick="submit(this)" style="color: #FFFFFF;cursor:pointer">校队预约</a></form>
+                              <form action="deleteGround.action" method="post"><input type="hidden" name="useTime" /><input type="hidden" name="groundId" value="<%=rs.getString("groundId")%>"  /><a class="buttons btn btn-danger" onclick="submit(this)" style="color: #FFFFFF;cursor:pointer">删除场地</a></form>
                               <%}%>
                             </td>
                           </tr>
@@ -263,8 +267,8 @@
                           <td><%=rs1.getString("groundEqu")%></td>
                           <td><%=rs1.getString("groundFee")%></td>
                           <td><%=rs1.getString("useTime")%></td>
-                          <td><form action="orderGround3.action" method="post" ><input type="hidden" name="groundId" value="<%=rs1.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-danger">取消预约</button></form></td>
-                        </tr>
+                          <%if (role.equals("3")||userId.equals(rs1.getString("userId"))){%> <td><form action="orderGround3.action" method="post" ><input type="hidden" name="groundId" value="<%=rs1.getString("groundId")%>"  /><button type="submit" class="buttons btn btn-danger">取消预约</button></form></td>
+                        </tr><%}%>
                          <%}%>
                         </tbody>
                       </table>

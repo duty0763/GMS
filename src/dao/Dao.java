@@ -35,15 +35,5 @@ public class Dao {
         }
         return -1;
     }
-
-
-    public int executeModify(String sql) {
-        try {
-            stat.executeUpdate(sql);
-            return 0;
-        } catch (Exception e) {
-// TODO: handle exception
-        }
-        return -1;
-    }
+    
 }
